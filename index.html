@@ -3,36 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>页面一</title>
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      text-align: center;
-      padding: 80px 20px;
-      background-color: #f3e5f5;
-      margin: 0;
-    }
-    h1 {
-      font-size: 2.8rem;
-      color: #e63939;        /* 这里改成红色 */
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 1.3rem;
-      color: #333;
-      line-height: 1.6;
-    }
-  </style>
+  <title>本科生请销假证明</title>
 </head>
 <body>
 
-  <h1>这是页面一</h1>
-  <p>page1.bzy123.us.ci 的专属内容</p>
-  <p>你可以在这里放完全不同的文字、图片或说明。</p>
+<script>
+// ================== 路由逻辑：主域名保持不变，子域名显示不同内容 ==================
+const hostname = window.location.hostname.toLowerCase();
 
-  <p style="margin-top: 60px; color: #666; font-size: 1rem;">
-    当前访问域名：page1.bzy123.us.ci
-  </p>
-
-</body>
-</html>
+if (hostname === "bzy123.us.ci" || hostname === "www.bzy123.us.ci") {
+  // 主域名：显示你原来的完整请销假证明页面
+  document.write(`<!DOCTYPE html>
+<html><!--
+ Page saved with SingleFile
+ url: https://a.zuel.edu.cn/infoplus/form/e4098103/view/9163420b10dfdd24952c8f6e29086612
+ saved date: Wed Apr 01 2026 13:29:31 GMT+0800 (中国标准时间)
+--><meta charset=utf-8>
+<title>本科生请销假证明</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+...（这里省略了你原来的超长代码，为了不让消息太长）
+<!-- 把你之前发给我的完整HTML代码粘贴在这里，从 <!DOCTYPE html> 开始一直到 </html> 结束 -->
+`);
+} 
+else if (hostname === "page1.bzy123.us.ci") {
+  // 子域名 page1：标题红色 + 简单页面
+  document.write(`
+    <!DOCTYPE html>
+    <html><head><meta charset="UTF-8"><title>页面一</title>
+    <style>
+      body{font-family:system-ui;text-align:center;padding:80px;background:#f3e5f5;margin:0;}
+      h1{font-size:2.8rem;color:#e63939;margin-bottom:20px;}
+      p{font-size:1.3rem;color:#333;}
+    </style>
+   
