@@ -3,59 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>本科生请销假证明</title>
+  <title>页面一</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      padding: 80px 20px;
+      background-color: #f3e5f5;
+      margin: 0;
+    }
+    h1 {
+      font-size: 2.8rem;
+      color: #e63939;        /* 这里改成红色 */
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.3rem;
+      color: #333;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
 
-<script>
-// ================== 路由逻辑 ==================
-const hostname = window.location.hostname.toLowerCase();
+  <h1>这是页面一</h1>
+  <p>page1.bzy123.us.ci 的专属内容</p>
+  <p>你可以在这里放完全不同的文字、图片或说明。</p>
 
-// 主域名：返回你原来的完整页面（完全不变）
-if (hostname === "bzy123.us.ci" || hostname === "www.bzy123.us.ci") {
-  window.location.href = "https://red-shadow-75b9.bzy123usci.workers.dev"; 
-  // 或者直接把你原来的完整HTML代码粘贴在这里（如果想完全离线）
-}
-
-// 子域名 page1：你可以自定义内容
-else if (hostname === "page1.bzy123.us.ci") {
-  document.write(`
-    <!DOCTYPE html>
-    <html><head><meta charset="UTF-8"><title>页面一</title>
-    <style>body{font-family: system-ui; text-align:center; padding:80px; background:#f3e5f5;}</style>
-    </head><body>
-      <h1>这是页面一</h1>
-      <p>page1.bzy123.us.ci 的专属内容</p>
-      <p>你可以在这里放完全不同的文字、图片或说明。</p>
-    </body></html>
-  `);
-}
-
-// 子域名 page2
-else if (hostname === "page2.bzy123.us.ci") {
-  document.write(`
-    <!DOCTYPE html>
-    <html><head><meta charset="UTF-8"><title>页面二</title>
-    <style>body{font-family: system-ui; text-align:center; padding:80px; background:#e8f5e9;}</style>
-    </head><body>
-      <h1>这是页面二</h1>
-      <p>page2.bzy123.us.ci 的内容</p>
-      <p>这里可以放你想要的任何信息。</p>
-    </body></html>
-  `);
-}
-
-// 其他子域名默认返回主页面
-else {
-  window.location.href = "https://bzy123.us.ci";
-}
-</script>
+  <p style="margin-top: 60px; color: #666; font-size: 1rem;">
+    当前访问域名：page1.bzy123.us.ci
+  </p>
 
 </body>
 </html>
- 
- 
- 
- 
- 
- </aside>
