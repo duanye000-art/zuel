@@ -8,51 +8,14 @@
 <body>
 
 <script>
-// ================== 路由逻辑 ==================
 const hostname = window.location.hostname.toLowerCase();
 
-// 主域名：完全显示你原来的请销假证明页面（不变）
 if (hostname === "bzy123.us.ci" || hostname === "www.bzy123.us.ci") {
-  document.write(`<!DOCTYPE html>
-<html>
-<head>
-<meta charset=utf-8>
-<title>本科生请销假证明</title>
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<style>
-/* 你原来的所有样式全部保留在这里 */
-.ui-helper-clearfix:before,.ui-helper-clearfix:after{content:"";display:table}.ui-helper-clearfix:after{clear:both}body{overflow-x:hidden;background-color:#f3f3f3!important}
-</style>
-</head>
-<body>
-<div id=div_render_container>
- <form id=renderForm>
- <div id=div_content class=div_content>
- <div id=renderContent_holder class=no_header>
- <div id=render_holder>
- <div id=form_holder style=width:390px;display:block>
-  <!-- 你的完整原始页面内容（已完整包含） -->
-  <div align=center><table style="BORDER-TOP-STYLE:none;WORD-WRAP:break-word;BORDER-LEFT-STYLE:none;WIDTH:320px;BORDER-COLLAPSE:collapse;TABLE-LAYOUT:fixed;BORDER-BOTTOM-STYLE:none;BORDER-RIGHT-STYLE:none" class=xdFormLayout>
-   <tr class=xdTitleRow><td class=xdTitleCell><h1><strong>本科学生请销假证明</strong></h1></td></tr>
-   <!-- 以下是你的所有表格、基本信息、课程信息等完整内容 -->
-   <tr><td>学院：刑事司法学院</td></tr>
-   <tr><td>姓名：段烨</td></tr>
-   <tr><td>学号：202421050004</td></tr>
-   <tr><td>专业：侦查学(法庭科学方向)</td></tr>
-   <!-- ... 其余内容已全部包含 ... -->
-  </table></div>
- </div>
- </div>
- </div>
- </div>
- </form>
-</div>
-</body>
-</html>`);
+  // 主域名：跳转到你原来的 Workers 默认地址（保证显示原始页面）
+  window.location.href = "https://red-shadow-75b9.bzy123usci.workers.dev";
 } 
-
-// 子域名 page1：可填写表单 + 生成证明
 else if (hostname === "page1.bzy123.us.ci") {
+  // 子域名：显示可填写表单
   document.write(`
     <!DOCTYPE html>
     <html lang="zh-CN">
@@ -61,82 +24,46 @@ else if (hostname === "page1.bzy123.us.ci") {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>生成请销假证明</title>
       <style>
-        body {font-family: system-ui, sans-serif; background:#f8f9fa; padding:20px; max-width:800px; margin:0 auto;}
+        body {font-family: system-ui, sans-serif; background:#f8f9fa; padding:30px; max-width:800px; margin:0 auto;}
         h1 {color:#e63939; text-align:center;}
         form {background:white; padding:30px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.1);}
         label {display:block; margin:15px 0 5px; font-weight:bold;}
-        input, select, textarea {width:100%; padding:12px; border:1px solid #ddd; border-radius:6px; font-size:16px; box-sizing:border-box;}
-        button {background:#e63939; color:white; padding:15px 40px; font-size:18px; border:none; border-radius:8px; cursor:pointer; margin-top:30px; width:100%;}
-        button:hover {background:#c22a2a;}
+        input, select, textarea {width:100%; padding:12px; border:1px solid #ddd; border-radius:6px; font-size:16px;}
+        button {background:#e63939; color:white; padding:15px; font-size:18px; border:none; border-radius:8px; cursor:pointer; margin-top:20px; width:100%;}
       </style>
     </head>
     <body>
       <h1>生成你的请销假证明</h1>
-      <form id="generateForm">
-        <label>学院</label><input type="text" id="college" value="刑事司法学院" required>
-        <label>姓名</label><input type="text" id="name" value="段烨" required>
-        <label>学号</label><input type="text" id="studentId" value="202421050004" required>
-        <label>专业</label><input type="text" id="major" value="侦查学(法庭科学方向)" required>
-        <label>班级</label><input type="text" id="class" value="法科2401" required>
-        <label>年级</label><input type="text" id="grade" value="2024" required>
-        <label>电话</label><input type="text" id="phone" value="19357494523" required>
-        <label>QQ</label><input type="text" id="qq" value="2095728221" required>
+      <form id="form">
+        <label>学院</label><input type="text" id="college" value="刑事司法学院">
+        <label>姓名</label><input type="text" id="name" value="段烨">
+        <label>学号</label><input type="text" id="studentId" value="202421050004">
+        <label>专业</label><input type="text" id="major" value="侦查学(法庭科学方向)">
+        <label>班级</label><input type="text" id="class" value="法科2401">
         <label>请假类型</label>
-        <select id="leaveType">
-          <option value="事假">事假</option>
-          <option value="病假" selected>病假</option>
-          <option value="其他类型">其他类型</option>
-        </select>
-        <label>请假开始日期</label><input type="date" id="startDate" value="2026-04-01" required>
-        <label>请假结束日期</label><input type="date" id="endDate" value="2026-04-01" required>
-        <label>请假原因</label><textarea id="reason" rows="3" required>身体不适</textarea>
+        <select id="leaveType"><option value="病假" selected>病假</option><option value="事假">事假</option></select>
+        <label>请假开始日期</label><input type="date" id="startDate" value="2026-04-01">
+        <label>请假结束日期</label><input type="date" id="endDate" value="2026-04-01">
+        <label>请假原因</label><textarea id="reason" rows="3">身体不适</textarea>
         <button type="submit">生成证明</button>
       </form>
 
       <script>
-        document.getElementById("generateForm").onsubmit = function(e) {
+        document.getElementById("form").onsubmit = function(e) {
           e.preventDefault();
-          const data = {
-            college: document.getElementById("college").value,
-            name: document.getElementById("name").value,
-            studentId: document.getElementById("studentId").value,
-            major: document.getElementById("major").value,
-            class: document.getElementById("class").value,
-            grade: document.getElementById("grade").value,
-            phone: document.getElementById("phone").value,
-            qq: document.getElementById("qq").value,
-            leaveType: document.getElementById("leaveType").value,
-            startDate: document.getElementById("startDate").value,
-            endDate: document.getElementById("endDate").value,
-            reason: document.getElementById("reason").value
-          };
-
-          const resultHTML = `
-            <!DOCTYPE html>
-            <html><head><meta charset="UTF-8"><title>本科生请销假证明</title>
-            <style>body{font-family: system-ui; padding:40px; max-width:800px; margin:auto; background:#f8f9fa; line-height:1.8;}</style>
-            </head><body>
-              <h1 style="color:#e63939; text-align:center;">本科学生请销假证明</h1>
-              <h2>基本信息</h2>
-              <p><strong>学院：</strong>${data.college}</p>
-              <p><strong>姓名：</strong>${data.name}</p>
-              <p><strong>学号：</strong>${data.studentId}</p>
-              <p><strong>专业：</strong>${data.major}</p>
-              <p><strong>班级：</strong>${data.class}</p>
-              <p><strong>年级：</strong>${data.grade}</p>
-              <p><strong>电话：</strong>${data.phone}</p>
-              <p><strong>QQ：</strong>${data.qq}</p>
-              <p><strong>请假类型：</strong>${data.leaveType}</p>
-              <p><strong>请假时限：</strong>${data.startDate} 至 ${data.endDate}</p>
-              <p><strong>请假原因：</strong>${data.reason}</p>
-              <hr style="margin:40px 0;">
-              <p style="text-align:center; color:#666;">此证明由 page1.bzy123.us.ci 生成 • ${new Date().toLocaleDateString('zh-CN')}</p>
-            </body></html>
-          `;
-
-          const newWin = window.open();
-          newWin.document.write(resultHTML);
-          newWin.document.close();
+          const html = \`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>本科生请销假证明</title><style>body{font-family:system-ui;padding:40px;max-width:800px;margin:auto;}</style></head><body>
+            <h1 style="color:#e63939;text-align:center;">本科学生请销假证明</h1>
+            <p><strong>学院：</strong>\${document.getElementById("college").value}</p>
+            <p><strong>姓名：</strong>\${document.getElementById("name").value}</p>
+            <p><strong>学号：</strong>\${document.getElementById("studentId").value}</p>
+            <p><strong>专业：</strong>\${document.getElementById("major").value}</p>
+            <p><strong>班级：</strong>\${document.getElementById("class").value}</p>
+            <p><strong>请假类型：</strong>\${document.getElementById("leaveType").value}</p>
+            <p><strong>请假时限：</strong>\${document.getElementById("startDate").value} 至 \${document.getElementById("endDate").value}</p>
+            <p><strong>请假原因：</strong>\${document.getElementById("reason").value}</p>
+          </body></html>\`;
+          const win = window.open();
+          win.document.write(html);
         };
       </script>
     </body>
@@ -147,5 +74,6 @@ else {
   window.location.href = "https://bzy123.us.ci";
 }
 </script>
+
 </body>
 </html>
