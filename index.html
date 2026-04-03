@@ -33,11 +33,7 @@ body {
   text-align: center;
   background: #fff;
 }
-.title-cell h1 {
-  font-size: 18px;
-  font-weight: bold;
-  color: #000;
-}
+.title-cell h1 { font-size: 18px; font-weight: bold; color: #000; }
 .content-cell {
   border: 1pt solid #bfbfbf;
   border-top: 1pt solid #000;
@@ -57,9 +53,7 @@ body {
   vertical-align: middle;
   font-size: 13px;
 }
-.section-header-row td {
-  border-top: 6pt solid #bfbfbf !important;
-}
+.section-header-row td { border-top: 6pt solid #bfbfbf !important; }
 .label-blue { color: #0070c0; font-size: 13px; }
 .blue-bar { font-size: 13.5pt; color: #0070c0; font-family: "Songti SC", serif; }
 .field-input {
@@ -74,15 +68,8 @@ body {
   color: #333;
   transition: border-color 0.2s, background 0.2s;
 }
-.field-input:focus {
-  border-bottom: 1.5px solid #0070c0;
-  background: #f0f8ff;
-}
-textarea.field-input {
-  resize: vertical;
-  min-height: 46px;
-  line-height: 1.5;
-}
+.field-input:focus { border-bottom: 1.5px solid #0070c0; background: #f0f8ff; }
+textarea.field-input { resize: vertical; min-height: 46px; line-height: 1.5; }
 .radio-group label { font-size: 13px; cursor: pointer; margin-left: 4px; }
 .radio-group input[type=radio] { cursor: pointer; }
 .sub-table {
@@ -97,6 +84,53 @@ textarea.field-input {
   vertical-align: middle;
   font-size: 13px;
 }
+
+/* 课程块 */
+.kc-block {
+  border: 1px solid #bde0ff;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background: #f5fbff;
+  overflow: hidden;
+}
+.kc-block-header {
+  background: #d6eeff;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #0070c0;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.kc-block-header .del-btn {
+  background: none;
+  border: none;
+  color: #c00;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+.kc-block .sub-table { margin: 6px auto; }
+
+.add-kc-btn {
+  display: block;
+  width: 100%;
+  background: #e8f4fd;
+  border: 1.5px dashed #0070c0;
+  color: #0070c0;
+  font-family: inherit;
+  font-size: 13px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 2px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.add-kc-btn:hover { background: #d0eaff; }
+
 #generateBtn {
   display: block;
   width: calc(100% - 40px);
@@ -162,17 +196,21 @@ textarea.field-input {
               <tr><td colspan="2"><input class="field-input" id="f_date_end" value="2026-04-01" placeholder="结束日期"></td></tr>
               <tr><td style="text-align:center">共计天数</td><td colspan="2"><input class="field-input" id="f_days" value="1"></td></tr>
               <tr><td style="text-align:center">请假原因</td><td colspan="2"><textarea class="field-input" id="f_reason">身体不适</textarea></td></tr>
-                             <tr><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align="center"><font size="3">上传证明材料</font></div></td><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan="2"><div align="center"><div style="font-size:small;font-family:&quot;PingFang SC&quot;,微软雅黑;width:100%" title="" class="infoplus_control infoplus_fileControl" id="file_dec4f2f7-2a5b-4f35-9a80-7feaac0045aa"><div class="display"><a target="_blank" href="https://a.zuel.edu.cn/file/d0b4ce19-99a2-4e69-aa9a-4fb9281c24f6" class="infoplus_fileControl_link" title="IMG_2766.jpeg 创建于2026-04-01 10:07:47"><div class="uploadFileName" style="max-width:55px">IMG_2766.jpeg</div><div class="uploadFileSize">(233.3K)</div></a><div id="81c41b5d-8f1b-4df1-a6fe-8decad8a916a" class="infoplus_popMenu top left" style="display:none"></div></div></div></div></td></tr>
+              <tr><td style="vertical-align:middle;padding:5px;text-align:center">上传证明材料</td>
+                <td colspan="2" style="padding:5px">
+                  <div style="font-size:12px;color:#0560a6">
+                    <a target="_blank" href="https://a.zuel.edu.cn/file/d0b4ce19-99a2-4e69-aa9a-4fb9281c24f6">IMG_2766.jpeg</a>
+                    <span style="color:#999">(233.3K)</span>
+                  </div>
+                </td>
+              </tr>
               <tr><td colspan="3" style="border-top:6pt solid #bfbfbf"><a href="#" style="font-size:12px;color:#0560a6">知情书下载（事假请上传家长或辅导员知情书，病假请上传校医院二级医院证明）</a></td></tr>
 
+              <!-- 课程信息 -->
               <tr class="section-header-row"><td colspan="3"><span class="blue-bar">▍ </span><span class="label-blue">课程信息</span></td></tr>
-              <tr><td colspan="3" style="border-bottom:6pt solid #bfbfbf">
-                <table class="sub-table"><colgroup><col width="144"><col width="144"></colgroup><tbody>
-                  <tr><td style="text-align:center">课程时间</td><td><input class="field-input" id="f_kc_time" value=""></td></tr>
-                  <tr><td style="text-align:center">课程节次</td><td><input class="field-input" id="f_kc_jie" value=""></td></tr>
-                  <tr><td style="text-align:center">请假课程</td><td><input class="field-input" id="f_kc_name" value=""></td></tr>
-                  <tr><td style="text-align:center">任课老师</td><td><input class="field-input" id="f_kc_teacher" value=""></td></tr>
-                </tbody></table>
+              <tr><td colspan="3" style="border-bottom:6pt solid #bfbfbf;padding:6px 0">
+                <div id="kc-list" style="padding:0 4px"></div>
+                <button class="add-kc-btn" type="button" onclick="addCourse()">＋ 添加课程</button>
               </td></tr>
 
               <tr class="section-header-row"><td colspan="3"><span class="blue-bar">▍ </span><span class="label-blue">第二联系人信息</span></td></tr>
@@ -203,37 +241,95 @@ textarea.field-input {
   <div style="height:1px;background:#fff"></div>
   <div id="div_footer_copy_content">© 2009 - 2021. 中南财经政法大学(zuel.edu.cn), All rights reserved.</div>
 </div>
+
+<!-- LZ-String 压缩库（大幅缩短 URL） -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
 <script>
+var courseCount = 0;
+
+function addCourse() {
+  courseCount++;
+  var idx = courseCount;
+  var div = document.createElement('div');
+  div.className = 'kc-block';
+  div.id = 'kc-block-' + idx;
+  div.innerHTML =
+    '<div class="kc-block-header">' +
+      '<span>第 ' + idx + ' 门课程</span>' +
+      '<button class="del-btn" type="button" onclick="removeCourse(' + idx + ')" title="删除此课程">✕</button>' +
+    '</div>' +
+    '<table class="sub-table"><colgroup><col width="110"><col width="150"></colgroup><tbody>' +
+      '<tr><td style="text-align:center">课程时间</td><td><input class="field-input kc-time" value=""></td></tr>' +
+      '<tr><td style="text-align:center">课程节次</td><td><input class="field-input kc-jie" value=""></td></tr>' +
+      '<tr><td style="text-align:center">请假课程</td><td><input class="field-input kc-name" value=""></td></tr>' +
+      '<tr><td style="text-align:center">任课老师</td><td><input class="field-input kc-teacher" value=""></td></tr>' +
+    '</tbody></table>';
+  document.getElementById('kc-list').appendChild(div);
+  renumberCourses();
+}
+
+function removeCourse(idx) {
+  var el = document.getElementById('kc-block-' + idx);
+  if (el) el.remove();
+  renumberCourses();
+}
+
+function renumberCourses() {
+  var blocks = document.getElementById('kc-list').querySelectorAll('.kc-block');
+  blocks.forEach(function(b, i) {
+    var header = b.querySelector('.kc-block-header span');
+    if (header) header.textContent = '第 ' + (i+1) + ' 门课程';
+  });
+}
+
+// 初始化：默认添加一门课程
+addCourse();
+
+function getCourses() {
+  var blocks = document.getElementById('kc-list').querySelectorAll('.kc-block');
+  var list = [];
+  blocks.forEach(function(b) {
+    list.push({
+      time:    b.querySelector('.kc-time').value,
+      jie:     b.querySelector('.kc-jie').value,
+      name:    b.querySelector('.kc-name').value,
+      teacher: b.querySelector('.kc-teacher').value
+    });
+  });
+  // 过滤掉完全空的课程行
+  return list.filter(function(c){ return c.time||c.jie||c.name||c.teacher; });
+}
+
 function generate() {
   var data = {
-    xueyuan: document.getElementById('f_xueyuan').value,
-    xingming: document.getElementById('f_xingming').value,
-    xuehao: document.getElementById('f_xuehao').value,
-    zhuanye: document.getElementById('f_zhuanye').value,
-    banji: document.getElementById('f_banji').value,
-    nianji: document.getElementById('f_nianji').value,
-    dianhua: document.getElementById('f_dianhua').value,
-    qq: document.getElementById('f_qq').value,
-    bzphone: document.getElementById('f_bzphone').value,
-    qjlx: document.querySelector('input[name="qjlx"]:checked').value,
-    date_start: document.getElementById('f_date_start').value,
-    date_end: document.getElementById('f_date_end').value,
-    days: document.getElementById('f_days').value,
-    reason: document.getElementById('f_reason').value,
-    kc_time: document.getElementById('f_kc_time').value,
-    kc_jie: document.getElementById('f_kc_jie').value,
-    kc_name: document.getElementById('f_kc_name').value,
-    kc_teacher: document.getElementById('f_kc_teacher').value,
-    lxr_name: document.getElementById('f_lxr_name').value,
-    lxr_phone: document.getElementById('f_lxr_phone').value,
-    lxr_addr: document.getElementById('f_lxr_addr').value,
-    lxr_rel: document.getElementById('f_lxr_rel').value,
-    fdyyjian: document.getElementById('f_fdyyjian').value,
-    reviewer: document.getElementById('f_reviewer').value,
-    review_date: document.getElementById('f_review_date').value
+    a: document.getElementById('f_xueyuan').value,
+    b: document.getElementById('f_xingming').value,
+    c: document.getElementById('f_xuehao').value,
+    d: document.getElementById('f_zhuanye').value,
+    e: document.getElementById('f_banji').value,
+    f: document.getElementById('f_nianji').value,
+    g: document.getElementById('f_dianhua').value,
+    h: document.getElementById('f_qq').value,
+    i: document.getElementById('f_bzphone').value,
+    j: document.querySelector('input[name="qjlx"]:checked').value,
+    k: document.getElementById('f_date_start').value,
+    l: document.getElementById('f_date_end').value,
+    m: document.getElementById('f_days').value,
+    n: document.getElementById('f_reason').value,
+    kc: getCourses(),
+    p: document.getElementById('f_lxr_name').value,
+    q: document.getElementById('f_lxr_phone').value,
+    r: document.getElementById('f_lxr_addr').value,
+    s: document.getElementById('f_lxr_rel').value,
+    t: document.getElementById('f_fdyyjian').value,
+    u: document.getElementById('f_reviewer').value,
+    v: document.getElementById('f_review_date').value
   };
-  var encoded = encodeURIComponent(btoa(unescape(encodeURIComponent(JSON.stringify(data)))));
-  window.open('card.html?d=' + encoded, '_blank');
+
+  var json = JSON.stringify(data);
+  // 使用 LZ-String 压缩后 base64url 编码，大幅缩短 URL
+  var compressed = LZString.compressToEncodedURIComponent(json);
+  window.open('card.html?z=' + compressed, '_blank');
 }
 </script>
 </body>

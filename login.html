@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>登录 - 请销假证明系统</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", SimHei, sans-serif;
+  background: linear-gradient(135deg, #e8f4fd 0%, #f3f3f3 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login-box {
+  background: white;
+  width: 340px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,112,192,0.18);
+  overflow: hidden;
+}
+.login-header {
+  background: #0070c0;
+  color: white;
+  text-align: center;
+  padding: 28px 20px 22px;
+}
+.login-header h1 {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.login-header p {
+  font-size: 12px;
+  opacity: 0.85;
+}
+.login-body {
+  padding: 28px 28px 20px;
+}
+.form-group {
+  margin-bottom: 18px;
+}
+.form-group label {
+  display: block;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+.form-group input {
+  width: 100%;
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fafff7;
+}
+.form-group input:focus {
+  border-color: #0070c0;
+  background: #f0f8ff;
+}
+#loginBtn {
+  width: 100%;
+  background: #0070c0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 13px;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,112,192,0.3);
+  transition: background 0.2s, transform 0.1s;
+  margin-top: 8px;
+}
+#loginBtn:hover { background: #005fa3; }
+#loginBtn:active { transform: scale(0.98); }
+.error-msg {
+  color: #c00;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 10px;
+  min-height: 18px;
+}
+.admin-link {
+  text-align: center;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #eee;
+}
+.admin-link a {
+  font-size: 12px;
+  color: #888;
+  text-decoration: none;
+}
+.admin-link a:hover { color: #0070c0; text-decoration: underline; }
+.footer {
+  margin-top: 20px;
+  color: #aaa;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* ===== 管理面板 ===== */
+#admin-panel {
+  display: none;
+  background: white;
+  width: 340px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,112,192,0.18);
+  overflow: hidden;
+}
+.admin-header {
+  background: #354d3f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+.admin-header h2 { font-size: 16px; font-weight: bold; }
+.admin-body { padding: 24px; }
+.admin-body .form-group { margin-bottom: 16px; }
+.admin-note { font-size: 11px; color: #888; margin-top: 4px; }
+#saveBtn {
+  width: 100%;
+  background: #354d3f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-top: 6px;
+}
+#saveBtn:hover { background: #2a3d30; }
+.save-ok { color: #090; font-size: 12px; text-align: center; margin-top: 8px; min-height: 18px; }
+.back-link { text-align: center; margin-top: 12px; }
+.back-link a { font-size: 12px; color: #888; cursor: pointer; }
+.back-link a:hover { color: #0070c0; text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- 登录面板 -->
+<div class="login-box" id="login-panel">
+  <div class="login-header">
+    <h1>本科学生请销假证明</h1>
+    <p>中南财经政法大学</p>
+  </div>
+  <div class="login-body">
+    <div class="form-group">
+      <label>账号</label>
+      <input type="text" id="username" placeholder="请输入账号" autocomplete="username">
+    </div>
+    <div class="form-group">
+      <label>密码</label>
+      <input type="password" id="password" placeholder="请输入密码" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <button id="loginBtn" onclick="doLogin()">登 录</button>
+    <div class="error-msg" id="error-msg"></div>
+    <div class="admin-link">
+      <a onclick="showAdmin()" href="#">⚙️ 管理员设置账号密码</a>
+    </div>
+  </div>
+</div>
+
+<!-- 管理设置面板 -->
+<div id="admin-panel">
+  <div class="admin-header">
+    <h2>⚙️ 账号密码设置</h2>
+  </div>
+  <div class="admin-body">
+    <p style="font-size:12px;color:#666;margin-bottom:16px;line-height:1.6;">
+      首次使用请设置登录账号和密码。账号密码保存在浏览器本地存储中。
+    </p>
+    <div class="form-group">
+      <label>当前管理密钥（首次留空）</label>
+      <input type="password" id="admin-key" placeholder="管理密钥">
+      <div class="admin-note">若从未设置过，留空即可直接保存。</div>
+    </div>
+    <div class="form-group">
+      <label>新登录账号</label>
+      <input type="text" id="new-username" placeholder="设置账号">
+    </div>
+    <div class="form-group">
+      <label>新登录密码</label>
+      <input type="password" id="new-password" placeholder="设置密码">
+    </div>
+    <div class="form-group">
+      <label>新管理密钥（用于下次修改账号密码）</label>
+      <input type="password" id="new-admin-key" placeholder="设置管理密钥">
+      <div class="admin-note">管理密钥与登录密码分开，请妥善保管。</div>
+    </div>
+    <button id="saveBtn" onclick="saveSettings()">保 存 设 置</button>
+    <div class="save-ok" id="save-ok"></div>
+    <div class="back-link"><a onclick="showLogin()">← 返回登录</a></div>
+  </div>
+</div>
+
+<div class="footer">© 2009 - 2021. 中南财经政法大学(zuel.edu.cn), All rights reserved.</div>
+
+<script>
+// 默认账号密码（若从未设置过）
+var DEFAULT_USER = 'admin';
+var DEFAULT_PASS = '123456';
+var DEFAULT_ADMIN_KEY = '';
+
+function getStored(key, def) {
+  return localStorage.getItem('qxj_' + key) || def;
+}
+function setStored(key, val) {
+  localStorage.setItem('qxj_' + key, val);
+}
+
+function doLogin() {
+  var u = document.getElementById('username').value.trim();
+  var p = document.getElementById('password').value;
+  var storedU = getStored('username', DEFAULT_USER);
+  var storedP = getStored('password', DEFAULT_PASS);
+  if (u === storedU && p === storedP) {
+    // 登录成功，写入会话标记后跳转
+    sessionStorage.setItem('qxj_auth', '1');
+    window.location.href = 'index.html';
+  } else {
+    document.getElementById('error-msg').textContent = '账号或密码错误，请重试。';
+    document.getElementById('password').value = '';
+    document.getElementById('password').focus();
+  }
+}
+
+function showAdmin() {
+  document.getElementById('login-panel').style.display = 'none';
+  document.getElementById('admin-panel').style.display = 'block';
+  document.getElementById('save-ok').textContent = '';
+}
+
+function showLogin() {
+  document.getElementById('admin-panel').style.display = 'none';
+  document.getElementById('login-panel').style.display = 'block';
+  document.getElementById('error-msg').textContent = '';
+}
+
+function saveSettings() {
+  var currentKey = getStored('admin_key', DEFAULT_ADMIN_KEY);
+  var inputKey = document.getElementById('admin-key').value;
+  var newU = document.getElementById('new-username').value.trim();
+  var newP = document.getElementById('new-password').value;
+  var newKey = document.getElementById('new-admin-key').value;
+
+  // 验证管理密钥
+  if (currentKey !== '' && inputKey !== currentKey) {
+    document.getElementById('save-ok').style.color = '#c00';
+    document.getElementById('save-ok').textContent = '管理密钥错误，无法保存。';
+    return;
+  }
+  if (!newU) {
+    document.getElementById('save-ok').style.color = '#c00';
+    document.getElementById('save-ok').textContent = '账号不能为空。';
+    return;
+  }
+  if (!newP) {
+    document.getElementById('save-ok').style.color = '#c00';
+    document.getElementById('save-ok').textContent = '密码不能为空。';
+    return;
+  }
+
+  setStored('username', newU);
+  setStored('password', newP);
+  setStored('admin_key', newKey);
+
+  document.getElementById('save-ok').style.color = '#090';
+  document.getElementById('save-ok').textContent = '✅ 保存成功！新账号：' + newU;
+
+  // 清空输入
+  ['admin-key','new-username','new-password','new-admin-key'].forEach(function(id){
+    document.getElementById(id).value = '';
+  });
+}
+</script>
+</body>
+</html>
