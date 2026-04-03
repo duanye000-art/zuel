@@ -203,7 +203,7 @@ div.infoplus_view_wrap_outer{margin:0}
                   <div align=center>
                    <div style=float:left;margin:0;padding:0 class="infoplus_control infoplus_imageControl infoplus_readonly">
                     <!-- 二维码容器，由JS动态生成 -->
-                    <div id=qrcode_container style="width:116px;height:116px;display:flex;align-items:center;justify-content:center;"></div>
+                    <div id=qrcode_container style="width:210px;height:210px;display:flex;align-items:center;justify-content:center;"></div>
                    </div>
                   </div>
                  </td></tr>
@@ -296,8 +296,8 @@ function setText(id, val) {
     if (typeof QRCode !== 'undefined') {
       new QRCode(qrContainer, {
         text: currentUrl,
-        width: 116,
-        height: 116,
+        width: 210,
+        height: 210,
         colorDark: '#000000',
         colorLight: '#ffffff',
         correctLevel: QRCode.CorrectLevel.M
