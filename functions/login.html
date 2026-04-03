@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录 - 私人页面</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+    .box { background: white; padding: 40px 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); width: 100%; max-width: 400px; text-align: center; }
+    h1 { margin: 0 0 30px; color: #333; }
+    input { width: 100%; padding: 14px; margin: 12px 0; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; box-sizing: border-box; }
+    button { width: 100%; padding: 14px; background: #0066ff; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 10px; }
+    button:hover { background: #0052cc; }
+    .error { color: #d32f2f; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>🔒 登录</h1>
+    <form action="/login" method="POST">
+      <input type="text" name="username" placeholder="用户名" required>
+      <input type="password" name="password" placeholder="密码" required>
+      <button type="submit">立即登录</button>
+    </form>
+    <p style="margin-top:20px; font-size:14px; color:#666;">仅限授权用户访问</p>
+  </div>
+</body>
+</html>
