@@ -68,3 +68,47 @@
  <circle r=7 fill=none stroke=#fff stroke-width=2></circle>
  </svg>
  </svg>
+<script>
+function generateProof() {
+  const html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>本科生请销假证明</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;background:#f3f3f3;padding:30px;}
+.container{max-width:820px;margin:auto;background:white;padding:40px;box-shadow:0 4px 20px rgba(0,0,0,0.15);}
+h1{text-align:center;color:#e63939;font-size:28px;}
+table{width:100%;border-collapse:collapse;margin:25px 0;}
+td{padding:14px 18px;border:1px solid #bfbfbf;}
+.label{background:#f8f9fa;font-weight:bold;width:180px;text-align:center;}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>本科学生请销假证明</h1>
+  <table>
+    <tr><td class="label">学院</td><td>${document.getElementById("college").value}</td></tr>
+    <tr><td class="label">姓名</td><td>${document.getElementById("name").value}</td></tr>
+    <tr><td class="label">学号</td><td>${document.getElementById("studentId").value}</td></tr>
+    <tr><td class="label">专业</td><td>${document.getElementById("major").value}</td></tr>
+    <tr><td class="label">班级</td><td>${document.getElementById("class").value}</td></tr>
+    <tr><td class="label">年级</td><td>${document.getElementById("grade")?.value || ''}</td></tr>
+    <tr><td class="label">电话</td><td>${document.getElementById("phone").value}</td></tr>
+    <tr><td class="label">QQ</td><td>${document.getElementById("qq").value}</td></tr>
+    <tr><td class="label">请假类型</td><td>${document.getElementById("leaveType").value}</td></tr>
+    <tr><td class="label">请假时限</td><td>${document.getElementById("startDate").value} 至 ${document.getElementById("endDate").value}</td></tr>
+    <tr><td class="label">请假原因</td><td>${document.getElementById("reason").value}</td></tr>
+  </table>
+  <p style="text-align:center;color:#666;margin-top:60px;">此证明由 bzy123.us.ci 生成 • ${new Date().toLocaleDateString('zh-CN')}</p>
+</div>
+</body>
+</html>`;
+
+  const newWin = window.open("", "_blank");
+  newWin.document.write(html);
+  newWin.document.close();
+}
+</script>
+</html>
