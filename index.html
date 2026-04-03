@@ -245,6 +245,13 @@ textarea.field-input { resize: vertical; min-height: 46px; line-height: 1.5; }
 <!-- LZ-String 压缩库（大幅缩短 URL） -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
 <script>
+// 登录验证：未登录则跳转到登录页
+(function() {
+  if (!sessionStorage.getItem('qxj_auth')) {
+    window.location.replace('login.html');
+  }
+})();
+
 var courseCount = 0;
 
 function addCourse() {
