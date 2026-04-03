@@ -195,15 +195,35 @@ textarea.field-input {
       </tr>
     </tbody>
   </table>
-  <button id="generateBtn" onclick="generate()">生成证明链接 →</button>
+    <button id="generateBtn" onclick="generate()">生成证明链接 →</button>
   <p class="btn-hint">点击后将在新标签页打开可分享的证明页面</p>
 </div>
+
+<!-- 登录容器 -->
+<div class="login-container">
+    <h1>登录</h1>
+    <form id="loginForm">
+        <input type="text" placeholder="用户名" required>
+        <input type="password" placeholder="密码" required>
+        <button type="submit">登录</button>
+    </form>
+</div>
+
 <div id="master_footer">
   <div style="height:1px;background:#999"></div>
   <div style="height:1px;background:#fff"></div>
   <div id="div_footer_copy_content">© 2009 - 2021. 中南财经政法大学(zuel.edu.cn), All rights reserved.</div>
 </div>
 <script>
+function generate() {
+  // 保持生成链接的功能不变
+}
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('登录信息已提交！');
+});
+</script>
+
 function generate() {
   var data = {
     xueyuan: document.getElementById('f_xueyuan').value,
