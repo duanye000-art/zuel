@@ -1,163 +1,94 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>证明模板</title>
-    <style>
-        body {
-            font-family: "SimSun", "宋体", serif;
-            margin: 0;
-            padding: 20px;
-            background: #f4f4f4;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: flex;
-            gap: 40px;
-        }
-        .left {
-            flex: 1;
-            /* 左侧固定内容样式，根据你的原代码调整 */
-        }
-        .right {
-            flex: 1;
-            /* 右侧信息栏 */
-        }
-        .info-row {
-            margin-bottom: 15px;
-        }
-        .info-row label {
-            display: inline-block;
-            width: 120px;
-            font-weight: bold;
-        }
-        .info-row input {
-            width: 280px;
-            padding: 6px;
-            border: 1px solid #999;
-            font-size: 16px;
-        }
-        button {
-            margin-top: 30px;
-            padding: 12px 30px;
-            font-size: 18px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        /* 打印友好样式（新窗口会使用） */
-        @media print {
-            body { background: white; }
-            .container { box-shadow: none; border: none; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>本科生请销假证明</title>
+  <style>
+    /* 保留你原来的核心样式，让页面看起来接近原版 */
+    body {font-family: "Microsoft YaHei", system-ui, sans-serif; background:#f3f3f3; margin:0; padding:20px;}
+    .container {max-width: 820px; margin: 0 auto; background: white; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);}
+    h1 {text-align: center; color: #e63939;}
+    table {width: 100%; border-collapse: collapse; margin: 20px 0;}
+    td {padding: 12px 15px; border: 1px solid #ddd; vertical-align: middle;}
+    .label {background: #f8f9fa; font-weight: bold; width: 160px; text-align: center;}
+    input, select, textarea {width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;}
+    button {background: #e63939; color: white; padding: 15px 40px; font-size: 18px; border: none; border-radius: 8px; cursor: pointer; display: block; margin: 40px auto 0; width: 320px;}
+    button:hover {background: #c22a2a;}
+  </style>
 </head>
 <body>
-
-<div class="container">
-    <!-- 左侧固定内容（请替换为你原代码的左侧部分） -->
-    <div class="left">
-        <h1 style="text-align:center;">XXX证明</h1>
-        <p style="text-align:center; font-size:18px;">兹证明</p>
-        <!-- ... 你的原左侧文本、印章位置等 ... -->
-        <p>以上情况属实，特此证明。</p>
-        <p style="text-align:right;">证明单位：XXXXXXXX</p>
-        <p style="text-align:right;">日期：2026年</p>
-    </div>
-
-    <!-- 右侧可修改信息栏（原代码中姓名、电话等位置） -->
-    <div class="right">
-        <div class="info-row">
-            <label>姓名：</label>
-            <input type="text" id="name" value="张三" placeholder="请输入姓名">
-        </div>
-        <div class="info-row">
-            <label>电话：</label>
-            <input type="text" id="phone" value="13800138000" placeholder="请输入电话">
-        </div>
-        <div class="info-row">
-            <label>身份证号：</label>
-            <input type="text" id="idcard" value="440123199001011234" placeholder="请输入身份证号">
-        </div>
-        <!-- 添加更多你需要的字段，例如： -->
-        <!-- <div class="info-row">
-            <label>其他信息：</label>
-            <input type="text" id="other" value="默认值">
-        </div> -->
-
-        <button onclick="generateCertificate()">生成证明</button>
-    </div>
-</div>
-
-<script>
-function generateCertificate() {
-    // 收集输入值
-    const name = document.getElementById('name').value || '未填写';
-    const phone = document.getElementById('phone').value || '未填写';
-    const idcard = document.getElementById('idcard').value || '未填写';
-    // 如果有更多字段，继续添加 const xxx = ... 
-
-    // 生成新窗口的完整HTML（样式与原页面完全一致，只是信息部分换成填好的文本）
-    const newHTML = `
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <title>生成的证明</title>
-    <style>
-        body { font-family: "SimSun", "宋体", serif; margin:0; padding:40px; background:#fff; }
-        .container { max-width:1000px; margin:0 auto; background:white; padding:40px; border:1px solid #ccc; }
-        .left { text-align:justify; line-height:1.8; }
-        .right { margin-top:20px; }
-        .info-row { margin:12px 0; font-size:18px; }
-        .info-row span { font-weight:bold; margin-right:10px; }
-        @media print { body { background:white; } .container { box-shadow:none; border:none; } }
-    </style>
-</head>
-<body>
-<div class="container">
-    <div class="left">
-        <h1 style="text-align:center;">XXX证明</h1>
-        <p style="text-align:center; font-size:18px;">兹证明</p>
-        <!-- 左侧固定内容，与原页面相同 -->
-        <p>以上情况属实，特此证明。</p>
-        <p style="text-align:right;">证明单位：XXXXXXXX</p>
-        <p style="text-align:right;">日期：2026年</p>
-    </div>
+  <div class="container">
+    <h1>本科学生请销假证明</h1>
     
-    <div class="right">
-        <div class="info-row"><span>姓名：</span>${name}</div>
-        <div class="info-row"><span>电话：</span>${phone}</div>
-        <div class="info-row"><span>身份证号：</span>${idcard}</div>
-        <!-- 更多字段请在这里对应添加 -->
-    </div>
+    <table>
+      <tr><td class="label">学院</td><td><input type="text" id="college" value="刑事司法学院"></td></tr>
+      <tr><td class="label">姓名</td><td><input type="text" id="name" value="段烨"></td></tr>
+      <tr><td class="label">学号</td><td><input type="text" id="studentId" value="202421050004"></td></tr>
+      <tr><td class="label">专业</td><td><input type="text" id="major" value="侦查学(法庭科学方向)"></td></tr>
+      <tr><td class="label">班级</td><td><input type="text" id="class" value="法科2401"></td></tr>
+      <tr><td class="label">年级</td><td><input type="text" id="grade" value="2024"></td></tr>
+      <tr><td class="label">电话</td><td><input type="text" id="phone" value="19357494523"></td></tr>
+      <tr><td class="label">QQ</td><td><input type="text" id="qq" value="2095728221"></td></tr>
+      <tr><td class="label">请假类型</td><td>
+        <select id="leaveType">
+          <option value="病假" selected>病假</option>
+          <option value="事假">事假</option>
+          <option value="其他类型">其他类型</option>
+        </select>
+      </td></tr>
+      <tr><td class="label">请假时限</td><td>
+        <input type="date" id="startDate" value="2026-04-01"> 至 
+        <input type="date" id="endDate" value="2026-04-01">
+      </td></tr>
+      <tr><td class="label">请假原因</td><td><textarea id="reason" rows="3">身体不适</textarea></td></tr>
+    </table>
+
+    <button onclick="generateProof()">生成证明</button>
+  </div>
+
+  <script>
+    function generateProof() {
+      const html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>本科生请销假证明</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;background:#f3f3f3;padding:30px;}
+.container{max-width:820px;margin:auto;background:white;padding:30px;box-shadow:0 4px 20px rgba(0,0,0,0.1);}
+h1{text-align:center;color:#e63939;}
+table{width:100%;border-collapse:collapse;margin:20px 0;}
+td{padding:12px 15px;border:1px solid #ddd;}
+.label{background:#f8f9fa;font-weight:bold;width:160px;text-align:center;}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>本科学生请销假证明</h1>
+  <table>
+    <tr><td class="label">学院</td><td>${document.getElementById("college").value}</td></tr>
+    <tr><td class="label">姓名</td><td>${document.getElementById("name").value}</td></tr>
+    <tr><td class="label">学号</td><td>${document.getElementById("studentId").value}</td></tr>
+    <tr><td class="label">专业</td><td>${document.getElementById("major").value}</td></tr>
+    <tr><td class="label">班级</td><td>${document.getElementById("class").value}</td></tr>
+    <tr><td class="label">年级</td><td>${document.getElementById("grade").value}</td></tr>
+    <tr><td class="label">电话</td><td>${document.getElementById("phone").value}</td></tr>
+    <tr><td class="label">QQ</td><td>${document.getElementById("qq").value}</td></tr>
+    <tr><td class="label">请假类型</td><td>${document.getElementById("leaveType").value}</td></tr>
+    <tr><td class="label">请假时限</td><td>${document.getElementById("startDate").value} 至 ${document.getElementById("endDate").value}</td></tr>
+    <tr><td class="label">请假原因</td><td>${document.getElementById("reason").value}</td></tr>
+  </table>
+  <p style="text-align:center;color:#666;margin-top:50px;">此证明由 bzy123.us.ci 生成 • ${new Date().toLocaleDateString('zh-CN')}</p>
 </div>
 </body>
 </html>`;
 
-    // 打开新窗口并写入内容
-    const newWindow = window.open('', '_blank', 'width=1100,height=800,scrollbars=yes,resizable=yes');
-    if (newWindow) {
-        newWindow.document.write(newHTML);
-        newWindow.document.close();
-        // 可选：自动触发打印对话框
-        // newWindow.print();
-    } else {
-        alert('弹出窗口被浏览器阻止，请允许弹出窗口后再试！');
+      const newWin = window.open();
+      newWin.document.write(html);
+      newWin.document.close();
     }
-}
-</script>
-
+  </script>
 </body>
 </html>
