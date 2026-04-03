@@ -45,20 +45,8 @@ div.infoplus_view_wrap_outer{margin:0}
 
 /* 多门课程块样式 */
 .kc-block-view {
-  border-top: 1px solid #d8d8d8;
-  padding-top: 6px;
-  margin-top: 4px;
-}
-.kc-block-view:first-child { border-top: none; margin-top: 0; padding-top: 0; }
-.kc-num-label {
-  font-size: 11px;
-  color: #0070c0;
-  background: #e8f4fd;
-  display: inline-block;
-  padding: 1px 6px;
-  border-radius: 3px;
-  margin-bottom: 4px;
-  margin-left: 2px;
+  margin: 0;
+  padding: 0;
 }
 </style>
 <body>
@@ -249,9 +237,8 @@ function renderCourses(courses) {
   if (!courses || courses.length === 0) return;
   var html = '';
   courses.forEach(function(c, i) {
-    var label = courses.length > 1 ? '<div class="kc-num-label">第 ' + (i+1) + ' 门课程</div>' : '';
     html +=
-      '<div class="kc-block-view">' + label +
+      '<div class="kc-block-view">' +
       '<div align=left style="MARGIN-BOTTOM:0px;WIDTH:100%"><div align=center>' +
       '<table border=1 bordercolor=buttontext style="WORD-WRAP:break-word;BORDER-TOP:medium none;BORDER-RIGHT:medium none;WIDTH:288px;BORDER-COLLAPSE:collapse;TABLE-LAYOUT:fixed;BORDER-BOTTOM:medium none;BORDER-LEFT:medium none" class=xdLayout>' +
       '<colgroup><col width=144 style=WIDTH:144px><col width=144 style=WIDTH:144px></colgroup><tbody>' +
