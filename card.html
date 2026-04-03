@@ -125,7 +125,13 @@ div.infoplus_view_wrap_outer{margin:0}
                  <tr><td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>请假原因</font></div></td>
                  <td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=left><div class=infoplus_labelControlContainer><div style='font-size:small;font-family:"PingFang SC",微软雅黑;width:100%;min-height:50px' class="infoplus_control infoplus_labelControl" id=v_reason></div></div></div></td></tr>
 
-                 <tr><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align="center"><font size="3">上传证明材料</font></div></td><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan="2"><div align="center"><div style="font-size:small;font-family:&quot;PingFang SC&quot;,微软雅黑;width:100%" title="" class="infoplus_control infoplus_fileControl" id="file_dec4f2f7-2a5b-4f35-9a80-7feaac0045aa"><div class="display"><a target="_blank" href="https://a.zuel.edu.cn/file/d0b4ce19-99a2-4e69-aa9a-4fb9281c24f6" class="infoplus_fileControl_link" title="IMG_2766.jpeg 创建于2026-04-01 10:07:47"><div class="uploadFileName" style="max-width:55px">IMG_2766.jpeg</div><div class="uploadFileSize">(233.3K)</div></a><div id="81c41b5d-8f1b-4df1-a6fe-8decad8a916a" class="infoplus_popMenu top left" style="display:none"></div></div></div></div></td></tr>
+                 <tr><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align="center"><font size="3">上传证明材料</font></div></td><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan="2"><div align="center">
+                   <div id="file_btn_wrap" onclick="showFileError()" style="display:inline-flex;align-items:center;background:#e8e8e8;border:1px solid #bbb;border-radius:4px;padding:5px 10px;cursor:pointer;max-width:160px;overflow:hidden;">
+                     <span id="v_file_name" style="font-size:12px;font-weight:bold;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:90px;font-family:'PingFang SC',微软雅黑"></span>
+                     <span id="v_file_size" style="font-size:11px;color:#666;margin-left:5px;white-space:nowrap;font-family:'PingFang SC',微软雅黑"></span>
+                   </div>
+                   <div id="file_error_toast" style="display:none;color:#c00;font-size:12px;margin-top:4px;">文件不可访问，请联系提交人</div>
+                 </div></td></tr>
                  <tr><td style="BORDER-TOP:#bfbfbf 6pt;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>证明材料模板</font></div></td>
                  <td style="BORDER-TOP:#bfbfbf 6pt;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><a href=# style=WIDTH:100% title>知情书下载（事假请上传家长或辅导员知情书，病假请上传校医院二级医院证明）</a></div></td></tr>
 
@@ -231,6 +237,13 @@ function setText(id, val) {
   if (el) el.textContent = val || '';
 }
 
+function showFileError() {
+  var toast = document.getElementById('file_error_toast');
+  if (!toast) return;
+  toast.style.display = 'block';
+  setTimeout(function(){ toast.style.display = 'none'; }, 2500);
+}
+
 // 渲染多门课程
 function renderCourses(courses) {
   var area = document.getElementById('kc_render_area');
@@ -266,7 +279,8 @@ var KEY_MAP = {
   f:'nianji',  g:'dianhua',  h:'qq',     i:'bzphone', j:'qjlx',
   k:'date_start', l:'date_end', m:'days', n:'reason',
   p:'lxr_name', q:'lxr_phone', r:'lxr_addr', s:'lxr_rel',
-  t:'fdyyjian', u:'reviewer', v:'review_date'
+  t:'fdyyjian', u:'reviewer', v:'review_date',
+  w:'file_name', x:'file_size'
 };
 
 (function() {
@@ -328,6 +342,12 @@ var KEY_MAP = {
   setText('v_fdyyjian',    data.fdyyjian);
   setText('v_reviewer',    data.reviewer);
   setText('v_review_date', data.review_date);
+
+  // 文件按钮
+  var fname = data.file_name || 'IMG_2766.jpeg';
+  var fsize = data.file_size || '233.3K';
+  setText('v_file_name', fname);
+  setText('v_file_size', '(' + fsize + ')');
 
   // 渲染课程
   renderCourses(data.courses || []);
