@@ -44,20 +44,14 @@ div.infoplus_view_wrap_outer{margin:0}
 .xdRepeatingSection{border:1pt solid transparent;margin:0;padding:0}
 
 /* 多门课程块样式 */
-.kc-block-view { margin: 0; padding: 0; }
-
-/* 新增：分享按钮样式 */
-#share_btn {
-  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-  background: #0070c0; color: white; padding: 12px 24px; border-radius: 8px;
-  font-size: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100;
-  cursor: pointer; white-space: nowrap;
+.kc-block-view {
+  margin: 0;
+  padding: 0;
 }
 </style>
 <body>
 <div id=div_render_container style=display:block>
  <form id=renderForm>
-  <!-- 你的原表格内容保持不变（从这里开始到二维码前） -->
   <div id=div_content class=div_content>
    <div id=renderContent_holder class=no_header>
     <div id=render_holder>
@@ -67,9 +61,154 @@ div.infoplus_view_wrap_outer{margin:0}
         <div class=infoplus_view>
          <div align=center>
           <table style="BORDER-TOP-STYLE:none;WORD-WRAP:break-word;BORDER-LEFT-STYLE:none;WIDTH:320px;BORDER-COLLAPSE:collapse;TABLE-LAYOUT:fixed;BORDER-BOTTOM-STYLE:none;BORDER-RIGHT-STYLE:none" class=xdFormLayout>
-           <!-- 你的原表格内容（太长，我这里省略显示，但请保留你原来的全部表格HTML） -->
-           <!-- ...（从 <tbody> 到二维码前的内容全部保持你原来的）... -->
-           <!-- 注意：请把你原来的整个表格部分直接粘贴到这里，保持不变 -->
+           <colgroup><col width=320 style=WIDTH:320px></colgroup>
+           <tbody>
+            <tr class=xdTitleRow>
+             <td class=xdTitleCell style="BORDER-TOP:#bfbfbf 1pt;BORDER-RIGHT:#bfbfbf 1pt;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#000000 1pt;PADDING-BOTTOM:8px;PADDING-TOP:8px;PADDING-LEFT:8px;BORDER-LEFT:#bfbfbf 1pt;PADDING-RIGHT:10px">
+              <h1><font color=#000000><strong>本科学生请销假证明</strong></font></h1>
+             </td>
+            </tr>
+            <tr class=xdTableContentRow>
+             <td class=xdTableContentCell style="BORDER-TOP:#000000 1pt;BORDER-RIGHT:#bfbfbf 1pt;VERTICAL-ALIGN:top;BORDER-BOTTOM:#bfbfbf 1pt;PADDING-BOTTOM:8px;PADDING-TOP:8px;PADDING-LEFT:8px;BORDER-LEFT:#bfbfbf 1pt;PADDING-RIGHT:10px">
+              <div align=center>
+               <table border=1 bordercolor=buttontext style="WORD-WRAP:break-word;BORDER-TOP:medium none;BORDER-RIGHT:medium none;WIDTH:300px;BORDER-COLLAPSE:collapse;TABLE-LAYOUT:fixed;BORDER-BOTTOM:medium none;BORDER-LEFT:medium none" class=xdLayout>
+                <colgroup><col width=150 style=WIDTH:150px><col width=75 style=WIDTH:75px><col width=75 style=WIDTH:75px></colgroup>
+                <tbody>
+
+                 <!-- 基本信息 -->
+                 <tr><td style="BORDER-TOP:#bfbfbf 6pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-RIGHT-COLOR:;PADDING-RIGHT:5px" colspan=3>
+                  <div align=left><font color=#0070c0><span style="FONT-SIZE:13.5pt;font-family:'Songti SC',宋体">▍ </span>基本信息</font></div>
+                 </td></tr>
+
+                 <tr><td style="BORDER-TOP:#bfbfbf 1pt solid;VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 院</font></div></td>
+                 <td style="BORDER-TOP:#bfbfbf 1pt solid;VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_xueyuan></div></div></div></td></tr>
+
+                 <tr><td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 名</font></div></td>
+                 <td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_xingming></div></div></div></td></tr>
+
+                 <tr><td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 号</font></div></td>
+                 <td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_xuehao></div></div></div></td></tr>
+
+                 <tr><td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 业</font></div></td>
+                 <td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_zhuanye></div></div></div></td></tr>
+
+                 <tr><td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>班&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 级</font></div></td>
+                 <td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_banji></div></div></div></td></tr>
+
+                 <tr><td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 级</font></div></td>
+                 <td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_nianji></div></div></div></td></tr>
+
+                 <tr><td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 话</font></div></td>
+                 <td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_dianhua></div></div></div></td></tr>
+
+                 <tr><td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>Q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Q</font></div></td>
+                 <td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_qq></div></div></div></td></tr>
+
+                 <tr><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;BORDER-BOTTOM-COLOR:;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>班长电话</font></div></td>
+                 <td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_bzphone></div></div></div></td></tr>
+
+                 <!-- 请假类型 -->
+                 <tr><td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;BORDER-BOTTOM-COLOR:;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-RIGHT-COLOR:;PADDING-RIGHT:5px" rowspan=3><div align=center><font size=3>请假类型</font></div></td>
+                 <td style="VERTICAL-ALIGN:middle;BORDER-LEFT-COLOR:;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><div class=xdlabel><input type=radio value=1 style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑' name=fieldQJLX class="infoplus_control infoplus_radioControl infoplus_readonly disabled infoplus_fieldChange" id=V0_CTRL17 readonly disabled><label for=V0_CTRL17 class=infoplus_radioLabel>事假</label></div></div></td>
+                 <td style="VERTICAL-ALIGN:middle;BORDER-LEFT-COLOR:;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><input type=radio value=2 style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑' name=fieldQJLX class="infoplus_control infoplus_radioControl infoplus_readonly disabled infoplus_fieldChange" id=V0_CTRL13 readonly disabled><label for=V0_CTRL13 class=infoplus_radioLabel>病假</label></div></td></tr>
+                 <tr><td style="VERTICAL-ALIGN:middle;BORDER-LEFT-COLOR:;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><input type=radio value=4 style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑' name=fieldQJLX class="infoplus_control infoplus_radioControl infoplus_readonly disabled infoplus_fieldChange" id=V0_CTRL14 readonly disabled><label for=V0_CTRL14 class=infoplus_radioLabel>其他类型</label></div></td></tr>
+                 <tr><td style="VERTICAL-ALIGN:middle;BORDER-LEFT-COLOR:;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2></td></tr>
+
+                 <!-- 请假时限 -->
+                 <tr><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;BORDER-BOTTOM-COLOR:;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-RIGHT-COLOR:;PADDING-RIGHT:5px" rowspan=2><div align=center><font size=3>请假时限</font></div></td>
+                 <td style="VERTICAL-ALIGN:middle;BORDER-LEFT-COLOR:;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_date_start></div></div></div></td></tr>
+                 <tr><td style="VERTICAL-ALIGN:middle;BORDER-LEFT-COLOR:;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_date_end></div></div></div></td></tr>
+
+                 <tr><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>共计天数</font></div></td>
+                 <td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_days></div></div></div></td></tr>
+
+                 <tr><td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>请假原因</font></div></td>
+                 <td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=left><div class=infoplus_labelControlContainer><div style='font-size:small;font-family:"PingFang SC",微软雅黑;width:100%;min-height:50px' class="infoplus_control infoplus_labelControl" id=v_reason></div></div></div></td></tr>
+
+                 <tr><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align="center"><font size="3">上传证明材料</font></div></td><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan="2"><div align="center">
+                   <div id="file_btn_wrap" onclick="showFileError()" style="display:inline-flex;align-items:center;background:#e8e8e8;border:1px solid #bbb;border-radius:4px;padding:5px 10px;cursor:pointer;max-width:160px;overflow:hidden;">
+                     <span id="v_file_name" style="font-size:12px;font-weight:bold;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:90px;font-family:'PingFang SC',微软雅黑"></span>
+                     <span id="v_file_size" style="font-size:11px;color:#666;margin-left:5px;white-space:nowrap;font-family:'PingFang SC',微软雅黑"></span>
+                   </div>
+                   <div id="file_error_toast" style="display:none;color:#c00;font-size:12px;margin-top:4px;">文件不可访问，请联系提交人</div>
+                 </div></td></tr>
+                 <tr><td style="BORDER-TOP:#bfbfbf 6pt;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>证明材料模板</font></div></td>
+                 <td style="BORDER-TOP:#bfbfbf 6pt;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><a href=# style=WIDTH:100% title>知情书下载（事假请上传家长或辅导员知情书，病假请上传校医院二级医院证明）</a></div></td></tr>
+
+                 <!-- 课程信息（动态渲染）-->
+                 <tr><td style="BORDER-TOP:#bfbfbf 6pt solid;VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;BORDER-BOTTOM-COLOR:;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-RIGHT-COLOR:;PADDING-RIGHT:5px" colspan=3>
+                  <div align=left><font color=#0070c0><span style="FONT-SIZE:13.5pt;font-family:'Songti SC',宋体">▍ </span>课程信息</font></div>
+                 </td></tr>
+                 <tr><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-RIGHT-COLOR:;PADDING-RIGHT:5px" colspan=3>
+                  <div align=center>
+                   <div class="xdRepeatingSection xdRepeating infoplus_repeatingSection" style=width:100%>
+                    <div id="kc_render_area">
+                     <!-- 课程块由 JS 动态生成 -->
+                    </div>
+                   </div>
+                  </div>
+                 </td></tr>
+
+                 <!-- 第二联系人信息 -->
+                 <tr><td style="BORDER-TOP:#bfbfbf 6pt solid;VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;BORDER-BOTTOM-COLOR:;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-RIGHT-COLOR:;PADDING-RIGHT:5px" colspan=3>
+                  <div align=left><font color=#0070c0><span style="FONT-SIZE:13.5pt;font-family:'Songti SC',宋体">▍ </span>第二联系人信息</font></div>
+                 </td></tr>
+                 <tr><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-RIGHT-COLOR:;PADDING-RIGHT:5px" colspan=3>
+                  <div align=center>
+                   <div class="xdRepeatingSection xdRepeating infoplus_repeatingSection" style=width:100%>
+                    <div align=left style=MARGIN-BOTTOM:0px;WIDTH:100%>
+                     <div align=center>
+                      <table border=1 bordercolor=buttontext style="WORD-WRAP:break-word;BORDER-TOP:medium none;BORDER-RIGHT:medium none;WIDTH:288px;BORDER-COLLAPSE:collapse;TABLE-LAYOUT:fixed;BORDER-BOTTOM:medium none;BORDER-LEFT:medium none" class=xdLayout>
+                       <colgroup><col width=144 style=WIDTH:144px><col width=144 style=WIDTH:144px></colgroup>
+                       <tbody>
+                        <tr><td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 名</font></div></td>
+                        <td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_lxr_name></div></div></div></td></tr>
+                        <tr><td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 话</font></div></td>
+                        <td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_lxr_phone></div></div></div></td></tr>
+                        <tr><td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>现居地址</font></div></td>
+                        <td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_lxr_addr></div></div></div></td></tr>
+                        <tr><td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>与本人关系</font></div></td>
+                        <td style="VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_lxr_rel></div></div></div></td></tr>
+                       </tbody>
+                      </table>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                 </td></tr>
+
+                 <!-- 审核信息 -->
+                 <tr><td style="BORDER-TOP:#bfbfbf 6pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-RIGHT-COLOR:;PADDING-RIGHT:5px" colspan=3>
+                  <div align=left><font color=#0070c0><span style="FONT-SIZE:13.5pt;font-family:'Songti SC',宋体">▍ </span>审核信息</font></div>
+                 </td></tr>
+
+                 <tr><td style="BORDER-TOP:#bfbfbf 1pt solid;VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;BORDER-BOTTOM-COLOR:;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>辅导员意见</font></div></td>
+                 <td style="BORDER-TOP:#bfbfbf 1pt solid;VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;BORDER-BOTTOM-COLOR:;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=left><div class=infoplus_labelControlContainer><div style='font-size:small;font-family:"PingFang SC",微软雅黑;width:100%;min-height:50px' class="infoplus_control infoplus_labelControl" id=v_fdyyjian></div></div></div></td></tr>
+
+                 <tr><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>审 核 人</font></div></td>
+                 <td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_reviewer></div></div></div></td></tr>
+
+                 <tr><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px"><div align=center><font size=3>审核日期</font></div></td>
+                 <td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;PADDING-RIGHT:5px" colspan=2><div align=center><div class="infoplus_labelControlContainer inline"><div style='FONT-SIZE:small;font-family:"PingFang SC",微软雅黑;WIDTH:100%' class="infoplus_control infoplus_labelControl inline" id=v_review_date></div></div></div></td></tr>
+
+                 <!-- 二维码行 -->
+                 <tr><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-RIGHT-COLOR:;PADDING-RIGHT:5px" colspan=3>
+                  <div class=xdlabel><font size=3></font></div><div align=center></div>
+                 </td></tr>
+                 <tr><td style="BORDER-TOP-COLOR:;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#bfbfbf 6pt;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-RIGHT-COLOR:;PADDING-RIGHT:5px" colspan=3>
+                  <div align=center>
+                   <div style=float:left;margin:0;padding:0 class="infoplus_control infoplus_imageControl infoplus_readonly">
+                    <div id=qrcode_container style="width:116px;height:116px;display:flex;align-items:center;justify-content:center;"></div>
+                   </div>
+                  </div>
+                 </td></tr>
+
+                </tbody>
+               </table>
+              </div>
+             </td>
+            </tr>
+           </tbody>
           </table>
          </div>
         </div>
@@ -80,7 +219,6 @@ div.infoplus_view_wrap_outer{margin:0}
    </div>
   </div>
  </form>
-
  <div id=master_footer>
   <div style=height:1px;background-color:#999999></div>
   <div style=height:1px;background-color:#FFFFFF></div>
@@ -90,11 +228,10 @@ div.infoplus_view_wrap_outer{margin:0}
 
 <!-- QRCode library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<!-- LZ-String -->
+<!-- LZ-String 解压库 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
 
 <script>
-// ==================== 你的原渲染函数保持不变 ====================
 function setText(id, val) {
   var el = document.getElementById(id);
   if (el) el.textContent = val || '';
@@ -107,12 +244,26 @@ function showFileError() {
   setTimeout(function(){ toast.style.display = 'none'; }, 2500);
 }
 
+// 渲染多门课程
 function renderCourses(courses) {
   var area = document.getElementById('kc_render_area');
   if (!courses || courses.length === 0) return;
   var html = '';
   courses.forEach(function(c, i) {
-    html += `<div class="kc-block-view"><div align=left style="MARGIN-BOTTOM:0px;WIDTH:100%"><div align=center><table border=1 bordercolor=buttontext style="WORD-WRAP:break-word;BORDER-TOP:medium none;BORDER-RIGHT:medium none;WIDTH:288px;BORDER-COLLAPSE:collapse;TABLE-LAYOUT:fixed;BORDER-BOTTOM:medium none;BORDER-LEFT:medium none" class=xdLayout><colgroup><col width=144 style=WIDTH:144px><col width=144 style=WIDTH:144px></colgroup><tbody><tr><td style="VERTICAL-ALIGN:middle;PADDING:5px;text-align:center"><font size=3>课程时间</font></td><td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">${esc(c.time)}</div></td></tr><tr><td style="VERTICAL-ALIGN:middle;PADDING:5px;text-align:center"><font size=3>课程节次</font></td><td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">${esc(c.jie)}</div></td></tr><tr><td style="VERTICAL-ALIGN:middle;PADDING:5px;text-align:center"><font size=3>请假课程</font></td><td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">${esc(c.name)}</div></td></tr><tr><td style="VERTICAL-ALIGN:middle;PADDING:5px;text-align:center"><font size=3>任课老师</font></td><td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">${esc(c.teacher)}</div></td></tr></tbody></table></div></div></div>`;
+    html +=
+      '<div class="kc-block-view">' +
+      '<div align=left style="MARGIN-BOTTOM:0px;WIDTH:100%"><div align=center>' +
+      '<table border=1 bordercolor=buttontext style="WORD-WRAP:break-word;BORDER-TOP:medium none;BORDER-RIGHT:medium none;WIDTH:288px;BORDER-COLLAPSE:collapse;TABLE-LAYOUT:fixed;BORDER-BOTTOM:medium none;BORDER-LEFT:medium none" class=xdLayout>' +
+      '<colgroup><col width=144 style=WIDTH:144px><col width=144 style=WIDTH:144px></colgroup><tbody>' +
+      '<tr><td style="VERTICAL-ALIGN:middle;PADDING:5px;text-align:center"><font size=3>课程时间</font></td>' +
+      '<td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">' + esc(c.time) + '</div></td></tr>' +
+      '<tr><td style="VERTICAL-ALIGN:middle;PADDING:5px;text-align:center"><font size=3>课程节次</font></td>' +
+      '<td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">' + esc(c.jie) + '</div></td></tr>' +
+      '<tr><td style="VERTICAL-ALIGN:middle;PADDING:5px;text-align:center"><font size=3>请假课程</font></td>' +
+      '<td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">' + esc(c.name) + '</div></td></tr>' +
+      '<tr><td style="VERTICAL-ALIGN:middle;PADDING:5px;text-align:center"><font size=3>任课老师</font></td>' +
+      '<td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">' + esc(c.teacher) + '</div></td></tr>' +
+      '</tbody></table></div></div></div>';
   });
   area.innerHTML = html;
 }
@@ -122,53 +273,46 @@ function esc(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-// ==================== 短键映射（大幅缩短长度） ====================
-const KEY_MAP = {
+// 字段名映射（短键 → 语义键）
+var KEY_MAP = {
   a:'xueyuan', b:'xingming', c:'xuehao', d:'zhuanye', e:'banji',
   f:'nianji',  g:'dianhua',  h:'qq',     i:'bzphone', j:'qjlx',
   k:'date_start', l:'date_end', m:'days', n:'reason',
   p:'lxr_name', q:'lxr_phone', r:'lxr_addr', s:'lxr_rel',
   t:'fdyyjian', u:'reviewer', v:'review_date',
-  w:'file_name', x:'file_size', kc:'courses'
+  w:'file_name', x:'file_size'
 };
 
-// ==================== 生成短链接函数（核心优化） ====================
-function generateShortLink(data) {
-  // 转为短键
-  const shortData = {};
-  Object.keys(data).forEach(key => {
-    const shortKey = Object.keys(KEY_MAP).find(k => KEY_MAP[k] === key) || key;
-    shortData[shortKey] = data[key];
-  });
-
-  const jsonStr = JSON.stringify(shortData, null, 0);  // 紧凑格式
-  const compressed = LZString.compressToEncodedURIComponent(jsonStr);
-  
-  const base = window.location.origin + window.location.pathname;
-  return `${base}?z=${compressed}`;
-}
-
-// ==================== 页面加载解压渲染 ====================
 (function() {
-  const params = new URLSearchParams(window.location.search);
-  const z = params.get('z');
-  const d = params.get('d');   // 兼容旧版
+  var params = new URLSearchParams(window.location.search);
+  var z = params.get('z');  // 新压缩格式
+  var d = params.get('d');  // 兼容旧格式
 
-  let data = null;
-
+  var data;
   try {
     if (z) {
-      const json = LZString.decompressFromEncodedURIComponent(z);
-      const raw = JSON.parse(json);
+      // LZ-String 解压
+      var json = LZString.decompressFromEncodedURIComponent(z);
+      var raw = JSON.parse(json);
+      // 展开短键
       data = {};
-      Object.keys(raw).forEach(k => {
-        const fullKey = KEY_MAP[k] || k;
+      Object.keys(raw).forEach(function(k) {
+        var fullKey = KEY_MAP[k] || k;
         data[fullKey] = raw[k];
       });
+      // kc 数组原样保留
+      if (raw.kc) data.courses = raw.kc;
     } else if (d) {
       // 旧格式兼容
-      const json2 = decodeURIComponent(escape(atob(decodeURIComponent(d))));
+      var json2 = decodeURIComponent(escape(atob(decodeURIComponent(d))));
       data = JSON.parse(json2);
+      // 旧格式单课程兼容
+      if (!data.courses) {
+        data.courses = [{
+          time: data.kc_time, jie: data.kc_jie,
+          name: data.kc_name, teacher: data.kc_teacher
+        }];
+      }
     } else {
       document.body.innerHTML = '<div style="text-align:center;padding:60px;color:#c00;font-size:16px;">链接无效，请重新生成。</div>';
       return;
@@ -178,69 +322,59 @@ function generateShortLink(data) {
     return;
   }
 
-  // 渲染所有字段（保持你原来的逻辑）
-  setText('v_xueyuan', data.xueyuan);
-  setText('v_xingming', data.xingming);
-  setText('v_xuehao', data.xuehao);
-  setText('v_zhuanye', data.zhuanye);
-  setText('v_banji', data.banji);
-  setText('v_nianji', data.nianji);
-  setText('v_dianhua', data.dianhua);
-  setText('v_qq', data.qq);
-  setText('v_bzphone', data.bzphone);
-  setText('v_date_start', data.date_start);
-  setText('v_date_end', data.date_end);
-  setText('v_days', data.days);
-  setText('v_reason', data.reason);
-  setText('v_lxr_name', data.lxr_name);
-  setText('v_lxr_phone', data.lxr_phone);
-  setText('v_lxr_addr', data.lxr_addr);
-  setText('v_lxr_rel', data.lxr_rel);
-  setText('v_fdyyjian', data.fdyyjian);
-  setText('v_reviewer', data.reviewer);
+  setText('v_xueyuan',     data.xueyuan);
+  setText('v_xingming',    data.xingming);
+  setText('v_xuehao',      data.xuehao);
+  setText('v_zhuanye',     data.zhuanye);
+  setText('v_banji',       data.banji);
+  setText('v_nianji',      data.nianji);
+  setText('v_dianhua',     data.dianhua);
+  setText('v_qq',          data.qq);
+  setText('v_bzphone',     data.bzphone);
+  setText('v_date_start',  data.date_start);
+  setText('v_date_end',    data.date_end);
+  setText('v_days',        data.days);
+  setText('v_reason',      data.reason);
+  setText('v_lxr_name',    data.lxr_name);
+  setText('v_lxr_phone',   data.lxr_phone);
+  setText('v_lxr_addr',    data.lxr_addr);
+  setText('v_lxr_rel',     data.lxr_rel);
+  setText('v_fdyyjian',    data.fdyyjian);
+  setText('v_reviewer',    data.reviewer);
   setText('v_review_date', data.review_date);
 
-  const fname = data.file_name || 'IMG_2766.jpeg';
-  const fsize = data.file_size || '233.3K';
+  // 文件按钮
+  var fname = data.file_name || 'IMG_2766.jpeg';
+  var fsize = data.file_size || '233.3K';
   setText('v_file_name', fname);
   setText('v_file_size', '(' + fsize + ')');
 
-  renderCourses(data.courses || data.kc || []);
+  // 渲染课程
+  renderCourses(data.courses || []);
 
-  // 请假类型
-  const qjlxMap = { '事假': 'V0_CTRL17', '病假': 'V0_CTRL13', '其他类型': 'V0_CTRL14' };
-  const targetRadio = qjlxMap[data.qjlx];
+  // 请假类型单选框
+  var qjlxMap = { '事假': 'V0_CTRL17', '病假': 'V0_CTRL13', '其他类型': 'V0_CTRL14' };
+  var targetRadio = qjlxMap[data.qjlx];
   if (targetRadio) {
-    const r = document.getElementById(targetRadio);
+    var r = document.getElementById(targetRadio);
     if (r) { r.checked = true; r.classList.add('checked'); }
   }
 
   if (data.xingming) document.title = '本科学生请销假证明 - ' + data.xingming;
 
-  // 生成二维码（当前链接）
-  const qrContainer = document.getElementById('qrcode_container');
+  // 生成二维码
+  var currentUrl = window.location.href;
+  var qrContainer = document.getElementById('qrcode_container');
   if (typeof QRCode !== 'undefined') {
     new QRCode(qrContainer, {
-      text: window.location.href,
-      width: 116, height: 116,
-      colorDark: '#000000', colorLight: '#ffffff',
+      text: currentUrl,
+      width: 116,
+      height: 116,
+      colorDark: '#000000',
+      colorLight: '#ffffff',
       correctLevel: QRCode.CorrectLevel.M
     });
   }
-
-  // ==================== 新增：复制分享链接按钮 ====================
-  const shareBtn = document.createElement('div');
-  shareBtn.id = 'share_btn';
-  shareBtn.innerHTML = '📋 复制分享链接（已优化更短）';
-  document.body.appendChild(shareBtn);
-
-  shareBtn.addEventListener('click', () => {
-    const shortUrl = generateShortLink(data);
-    navigator.clipboard.writeText(shortUrl).then(() => {
-      shareBtn.innerHTML = '✅ 已复制！';
-      setTimeout(() => { shareBtn.innerHTML = '📋 复制分享链接（已优化更短）'; }, 2000);
-    });
-  });
 })();
 </script>
 </body>
