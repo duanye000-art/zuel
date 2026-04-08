@@ -287,25 +287,46 @@ function esc(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
+// 字段名映射（短键 → 语义键）
+var KEY_MAP = {
+  a:'xueyuan', b:'xingming', c:'xuehao', d:'zhuanye', e:'banji',
+  f:'nianji',  g:'dianhua',  h:'qq',     i:'bzphone', j:'qjlx',
+  k:'date_start', l:'date_end', m:'days', n:'reason',
+  p:'lxr_name', q:'lxr_phone', r:'lxr_addr', s:'lxr_rel',
+  t:'fdyyjian', u:'reviewer', v:'review_date',
+  w:'file_name', x:'file_size'
+};
+
 (function() {
   var params = new URLSearchParams(window.location.search);
-  var z = params.get('z');
+  var z = params.get('z');  // 新压缩格式
+  var d = params.get('d');  // 兼容旧格式
 
   var data;
   try {
     if (z) {
       // LZ-String 解压
       var json = LZString.decompressFromEncodedURIComponent(z);
-      var arr = JSON.parse(json);
-      // 数组格式：[学院,姓名,学号,专业,班级,年级,电话,QQ,班长电话,请假类型,开始日期,结束日期,天数,原因,课程数组,联系人姓名,联系人电话,联系人地址,联系人关系,辅导员意见,审核人,审核日期,文件名,文件大小]
-      data = {
-        xueyuan: arr[0], xingming: arr[1], xuehao: arr[2], zhuanye: arr[3], banji: arr[4],
-        nianji: arr[5], dianhua: arr[6], qq: arr[7], bzphone: arr[8], qjlx: arr[9],
-        date_start: arr[10], date_end: arr[11], days: arr[12], reason: arr[13],
-        courses: arr[14], lxr_name: arr[15], lxr_phone: arr[16], lxr_addr: arr[17],
-        lxr_rel: arr[18], fdyyjian: arr[19], reviewer: arr[20], review_date: arr[21],
-        file_name: arr[22], file_size: arr[23]
-      };
+      var raw = JSON.parse(json);
+      // 展开短键
+      data = {};
+      Object.keys(raw).forEach(function(k) {
+        var fullKey = KEY_MAP[k] || k;
+        data[fullKey] = raw[k];
+      });
+      // kc 数组原样保留
+      if (raw.kc) data.courses = raw.kc;
+    } else if (d) {
+      // 旧格式兼容
+      var json2 = decodeURIComponent(escape(atob(decodeURIComponent(d))));
+      data = JSON.parse(json2);
+      // 旧格式单课程兼容
+      if (!data.courses) {
+        data.courses = [{
+          time: data.kc_time, jie: data.kc_jie,
+          name: data.kc_name, teacher: data.kc_teacher
+        }];
+      }
     } else {
       document.body.innerHTML = '<div style="text-align:center;padding:60px;color:#c00;font-size:16px;">链接无效，请重新生成。</div>';
       return;
