@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>本科生请销假证明 - 填写</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", SimHei, sans-serif;
+  font-size: 14px;
+  background: #f3f3f3;
+  min-height: 100vh;
+}
+#form_holder {
+  width: 390px;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 8px rgba(0,0,0,0.12);
+  padding-bottom: 20px;
+}
+.main-table {
+  width: 320px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 10px auto 0;
+  word-wrap: break-word;
+}
+.title-cell {
+  border: 1pt solid #bfbfbf;
+  border-bottom: 1pt solid #000;
+  padding: 8px 10px 8px 8px;
+  text-align: center;
+  background: #fff;
+}
+.title-cell h1 { font-size: 18px; font-weight: bold; color: #000; }
+.content-cell {
+  border: 1pt solid #bfbfbf;
+  border-top: 1pt solid #000;
+  padding: 8px 10px 8px 8px;
+  background: #fff;
+  vertical-align: top;
+}
+.layout-table {
+  width: 300px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 0 auto;
+}
+.layout-table td {
+  border: 1px solid #d8d8d8;
+  padding: 5px;
+  vertical-align: middle;
+  font-size: 13px;
+}
+.section-header-row td { border-top: 6pt solid #bfbfbf !important; }
+.label-blue { color: #0070c0; font-size: 13px; }
+.blue-bar { font-size: 13.5pt; color: #0070c0; font-family: "Songti SC", serif; }
+.field-input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: #fafff7;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 13px;
+  padding: 2px 4px;
+  outline: none;
+  color: #333;
+  transition: border-color 0.2s, background 0.2s;
+}
+.field-input:focus { border-bottom: 1.5px solid #0070c0; background: #f0f8ff; }
+textarea.field-input { resize: vertical; min-height: 46px; line-height: 1.5; }
+.radio-group label { font-size: 13px; cursor: pointer; margin-left: 4px; }
+.radio-group input[type=radio] { cursor: pointer; }
+.sub-table {
+  width: 288px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 0 auto;
+}
+.sub-table td {
+  border: 1px solid #d8d8d8;
+  padding: 5px;
+  vertical-align: middle;
+  font-size: 13px;
+}
+
+/* 课程块 */
+.kc-block {
+  border: 1px solid #bde0ff;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background: #f5fbff;
+  overflow: hidden;
+}
+.kc-block-header {
+  background: #d6eeff;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #0070c0;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.kc-block-header .del-btn {
+  background: none;
+  border: none;
+  color: #c00;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+.kc-block .sub-table { margin: 6px auto; }
+
+.add-kc-btn {
+  display: block;
+  width: 100%;
+  background: #e8f4fd;
+  border: 1.5px dashed #0070c0;
+  color: #0070c0;
+  font-family: inherit;
+  font-size: 13px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 2px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.add-kc-btn:hover { background: #d0eaff; }
+
+#generateBtn {
+  display: block;
+  width: calc(100% - 40px);
+  margin: 24px 20px 8px;
+  padding: 14px;
+  background: #0070c0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,112,192,0.35);
+  transition: background 0.2s, transform 0.1s;
+}
+#generateBtn:hover { background: #005fa3; }
+#generateBtn:active { transform: scale(0.98); }
+.btn-hint { text-align: center; color: #888; font-size: 12px; margin-bottom: 12px; }
+#master_footer { background: #f3f3f3; text-align: center; padding: 8px 0 2px; }
+#div_footer_copy_content { padding: 10px 0; text-align: center; color: #666; font-size: 12px; }
+.edit-hint-bar {
+  background: #e8f4fd;
+  border-bottom: 2px solid #0070c0;
+  text-align: center;
+  padding: 8px;
+  font-size: 13px;
+  color: #0070c0;
+}
+</style>
+</head>
+<body>
+<div class="edit-hint-bar">✏️ 请填写下方信息，完成后点击底部按钮生成证明链接</div>
+<div id="form_holder">
+  <table class="main-table">
+    <colgroup><col width="320"></colgroup>
+    <tbody>
+      <tr><td class="title-cell"><h1><strong>本科学生请销假证明</strong></h1></td></tr>
+      <tr>
+        <td class="content-cell">
+          <table class="layout-table">
+            <colgroup><col width="150"><col width="75"><col width="75"></colgroup>
+            <tbody>
+              <tr class="section-header-row"><td colspan="3"><span class="blue-bar">▍ </span><span class="label-blue">基本信息</span></td></tr>
+              <tr><td style="text-align:center">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;院</td><td colspan="2"><input class="field-input" id="f_xueyuan" value=""></td></tr>
+              <tr><td style="text-align:center">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</td><td colspan="2"><input class="field-input" id="f_xingming" value=""></td></tr>
+              <tr><td style="text-align:center">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</td><td colspan="2"><input class="field-input" id="f_xuehao" value=""></td></tr>
+              <tr><td style="text-align:center">专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业</td><td colspan="2"><input class="field-input" id="f_zhuanye" value=""></td></tr>
+              <tr><td style="text-align:center">班&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级</td><td colspan="2"><input class="field-input" id="f_banji" value=""></td></tr>
+              <tr><td style="text-align:center">年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级</td><td colspan="2"><input class="field-input" id="f_nianji" value=""></td></tr>
+              <tr><td style="text-align:center">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话</td><td colspan="2"><input class="field-input" id="f_dianhua" value=""></td></tr>
+              <tr><td style="text-align:center">Q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q</td><td colspan="2"><input class="field-input" id="f_qq" value=""></td></tr>
+              <tr><td style="text-align:center">班长电话</td><td colspan="2"><input class="field-input" id="f_bzphone" value=""></td></tr>
+              <tr>
+                <td rowspan="3" style="text-align:center">请假类型</td>
+                <td style="text-align:center"><div class="radio-group"><input type="radio" name="qjlx" id="r_shijia" value="事假"><label for="r_shijia">事假</label></div></td>
+                <td style="text-align:center"><div class="radio-group"><input type="radio" name="qjlx" id="r_bingjia" value="病假" checked><label for="r_bingjia">病假</label></div></td>
+              </tr>
+              <tr><td colspan="2" style="text-align:center"><div class="radio-group"><input type="radio" name="qjlx" id="r_qita" value="其他类型"><label for="r_qita">其他类型</label></div></td></tr>
+              <tr><td colspan="2"></td></tr>
+              <tr><td rowspan="2" style="text-align:center">请假时限</td><td colspan="2"><input class="field-input" id="f_date_start" value="2026-04-01" placeholder="开始日期"></td></tr>
+              <tr><td colspan="2"><input class="field-input" id="f_date_end" value="2026-04-01" placeholder="结束日期"></td></tr>
+              <tr><td style="text-align:center">共计天数</td><td colspan="2"><input class="field-input" id="f_days" value="1"></td></tr>
+              <tr><td style="text-align:center">请假原因</td><td colspan="2"><textarea class="field-input" id="f_reason">身体不适</textarea></td></tr>
+              <tr><td style="vertical-align:middle;padding:5px;text-align:center">上传证明材料</td>
+                <td colspan="2" style="padding:5px">
+                  <div style="font-size:12px;color:#666;margin-bottom:3px">文件名：</div>
+                  <input class="field-input" id="f_file_name" value="家长知情书.jpeg" placeholder="文件名" style="margin-bottom:4px">
+                  <div style="font-size:12px;color:#666;margin-bottom:3px">大小：</div>
+                  <input class="field-input" id="f_file_size" value="53.5K" placeholder="如 233.3K">
+                </td>
+              </tr>
+              <tr><td colspan="3" style="border-top:6pt solid #bfbfbf"><a href="#" style="font-size:12px;color:#0560a6">知情书下载（事假请上传家长或辅导员知情书，病假请上传校医院二级医院证明）</a></td></tr>
+
+              <!-- 课程信息 -->
+              <tr class="section-header-row"><td colspan="3"><span class="blue-bar">▍ </span><span class="label-blue">课程信息</span></td></tr>
+              <tr><td colspan="3" style="border-bottom:6pt solid #bfbfbf;padding:6px 0">
+                <div id="kc-list" style="padding:0 4px"></div>
+                <button class="add-kc-btn" type="button" onclick="addCourse()">＋ 添加课程</button>
+              </td></tr>
+
+              <tr class="section-header-row"><td colspan="3"><span class="blue-bar">▍ </span><span class="label-blue">第二联系人信息</span></td></tr>
+              <tr><td colspan="3" style="border-bottom:6pt solid #bfbfbf">
+                <table class="sub-table"><colgroup><col width="144"><col width="144"></colgroup><tbody>
+                  <tr><td style="text-align:center">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</td><td><input class="field-input" id="f_lxr_name" value=""></td></tr>
+                  <tr><td style="text-align:center">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话</td><td><input class="field-input" id="f_lxr_phone" value=""></td></tr>
+                  <tr><td style="text-align:center">现居地址</td><td><input class="field-input" id="f_lxr_addr" value=""></td></tr>
+                  <tr><td style="text-align:center">与本人关系</td><td><input class="field-input" id="f_lxr_rel" value=""></td></tr>
+                </tbody></table>
+              </td></tr>
+
+              <tr><td colspan="3" style="border-top:6pt solid #bfbfbf;border-bottom:1px solid #bfbfbf"><span class="blue-bar">▍ </span><span class="label-blue">审核信息</span></td></tr>
+              <tr><td style="text-align:center">辅导员意见</td><td colspan="2"><textarea class="field-input" id="f_fdyyjian">审核通过</textarea></td></tr>
+              <tr><td style="text-align:center">审&nbsp;核&nbsp;人</td><td colspan="2"><input class="field-input" id="f_reviewer" value=""></td></tr>
+              <tr><td style="text-align:center">审核日期</td><td colspan="2"><input class="field-input" id="f_review_date" value=""></td></tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button id="generateBtn" onclick="generate()">生成证明链接 →</button>
+  <p class="btn-hint">点击后将在新标签页打开可分享的证明页面</p>
+</div>
+<div id="master_footer">
+  <div style="height:1px;background:#999"></div>
+  <div style="height:1px;background:#fff"></div>
+  <div id="div_footer_copy_content">© 2009 - 2021. 中南财经政法大学(zuel.edu.cn), All rights reserved.</div>
+</div>
+
+<!-- LZ-String 压缩库（大幅缩短 URL） -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
+<script>
+// 登录验证：未登录则跳转到登录页
+(function() {
+  if (!sessionStorage.getItem('qxj_auth')) {
+    window.location.replace('login.html');
+  }
+})();
+
+var courseCount = 0;
+
+function addCourse() {
+  courseCount++;
+  var idx = courseCount;
+  var div = document.createElement('div');
+  div.className = 'kc-block';
+  div.id = 'kc-block-' + idx;
+  div.innerHTML =
+    '<div class="kc-block-header">' +
+      '<span>第 ' + idx + ' 门课程</span>' +
+      '<button class="del-btn" type="button" onclick="removeCourse(' + idx + ')" title="删除此课程">✕</button>' +
+    '</div>' +
+    '<table class="sub-table"><colgroup><col width="110"><col width="150"></colgroup><tbody>' +
+      '<tr><td style="text-align:center">课程时间</td><td><input class="field-input kc-time" value=""></td></tr>' +
+      '<tr><td style="text-align:center">课程节次</td><td><input class="field-input kc-jie" value=""></td></tr>' +
+      '<tr><td style="text-align:center">请假课程</td><td><input class="field-input kc-name" value=""></td></tr>' +
+      '<tr><td style="text-align:center">任课老师</td><td><input class="field-input kc-teacher" value=""></td></tr>' +
+    '</tbody></table>';
+  document.getElementById('kc-list').appendChild(div);
+  renumberCourses();
+}
+
+function removeCourse(idx) {
+  var el = document.getElementById('kc-block-' + idx);
+  if (el) el.remove();
+  renumberCourses();
+}
+
+function renumberCourses() {
+  var blocks = document.getElementById('kc-list').querySelectorAll('.kc-block');
+  blocks.forEach(function(b, i) {
+    var header = b.querySelector('.kc-block-header span');
+    if (header) header.textContent = '第 ' + (i+1) + ' 门课程';
+  });
+}
+
+// 初始化：默认添加一门课程
+addCourse();
+
+function getCourses() {
+  var blocks = document.getElementById('kc-list').querySelectorAll('.kc-block');
+  var list = [];
+  blocks.forEach(function(b) {
+    list.push({
+      time:    b.querySelector('.kc-time').value,
+      jie:     b.querySelector('.kc-jie').value,
+      name:    b.querySelector('.kc-name').value,
+      teacher: b.querySelector('.kc-teacher').value
+    });
+  });
+  // 过滤掉完全空的课程行
+  return list.filter(function(c){ return c.time||c.jie||c.name||c.teacher; });
+}
+
+function generate() {
+  // 使用数组存储数据，按固定顺序：[学院,姓名,学号,专业,班级,年级,电话,QQ,班长电话,请假类型,开始日期,结束日期,天数,原因,课程数组,联系人姓名,联系人电话,联系人地址,联系人关系,辅导员意见,审核人,审核日期,文件名,文件大小]
+  var data = [
+    document.getElementById('f_xueyuan').value,
+    document.getElementById('f_xingming').value,
+    document.getElementById('f_xuehao').value,
+    document.getElementById('f_zhuanye').value,
+    document.getElementById('f_banji').value,
+    document.getElementById('f_nianji').value,
+    document.getElementById('f_dianhua').value,
+    document.getElementById('f_qq').value,
+    document.getElementById('f_bzphone').value,
+    document.querySelector('input[name="qjlx"]:checked').value,
+    document.getElementById('f_date_start').value,
+    document.getElementById('f_date_end').value,
+    document.getElementById('f_days').value,
+    document.getElementById('f_reason').value,
+    getCourses(),
+    document.getElementById('f_lxr_name').value,
+    document.getElementById('f_lxr_phone').value,
+    document.getElementById('f_lxr_addr').value,
+    document.getElementById('f_lxr_rel').value,
+    document.getElementById('f_fdyyjian').value,
+    document.getElementById('f_reviewer').value,
+    document.getElementById('f_review_date').value,
+    document.getElementById('f_file_name').value,
+    document.getElementById('f_file_size').value
+  ];
+
+  var json = JSON.stringify(data);
+  // 使用 LZ-String 压缩后 base64url 编码，大幅缩短 URL
+  var compressed = LZString.compressToEncodedURIComponent(json);
+  window.open('card.html?z=' + compressed, '_blank');
+}
+</script>
+</body>
+</html>
