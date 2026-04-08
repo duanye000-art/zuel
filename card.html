@@ -250,19 +250,33 @@ function renderCourses(courses) {
   if (!courses || courses.length === 0) return;
   var html = '';
   courses.forEach(function(c, i) {
+    // 处理数组形式的课程数据 [time, jie, name, teacher]
+    var time = '', jie = '', name = '', teacher = '';
+    if (Array.isArray(c)) {
+      time = c[0] || '';
+      jie = c[1] || '';
+      name = c[2] || '';
+      teacher = c[3] || '';
+    } else {
+      // 兼容旧格式（对象形式）
+      time = c.time || '';
+      jie = c.jie || '';
+      name = c.name || '';
+      teacher = c.teacher || '';
+    }
     html +=
       '<div class="kc-block-view">' +
       '<div align=left style="MARGIN-BOTTOM:0px;WIDTH:100%"><div align=center>' +
       '<table border=1 bordercolor=buttontext style="WORD-WRAP:break-word;BORDER-TOP:medium none;BORDER-RIGHT:medium none;WIDTH:288px;BORDER-COLLAPSE:collapse;TABLE-LAYOUT:fixed;BORDER-BOTTOM:medium none;BORDER-LEFT:medium none" class=xdLayout>' +
       '<colgroup><col width=144 style=WIDTH:144px><col width=144 style=WIDTH:144px></colgroup><tbody>' +
       '<tr><td style="VERTICAL-ALIGN:middle;PADDING:5px;text-align:center"><font size=3>课程时间</font></td>' +
-      '<td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">' + esc(c.time) + '</div></td></tr>' +
+      '<td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">' + esc(time) + '</div></td></tr>' +
       '<tr><td style="VERTICAL-ALIGN:middle;PADDING:5px;text-align:center"><font size=3>课程节次</font></td>' +
-      '<td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">' + esc(c.jie) + '</div></td></tr>' +
+      '<td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">' + esc(jie) + '</div></td></tr>' +
       '<tr><td style="VERTICAL-ALIGN:middle;PADDING:5px;text-align:center"><font size=3>请假课程</font></td>' +
-      '<td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">' + esc(c.name) + '</div></td></tr>' +
+      '<td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">' + esc(name) + '</div></td></tr>' +
       '<tr><td style="VERTICAL-ALIGN:middle;PADDING:5px;text-align:center"><font size=3>任课老师</font></td>' +
-      '<td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">' + esc(c.teacher) + '</div></td></tr>' +
+      '<td style="VERTICAL-ALIGN:middle;PADDING:5px"><div style="font-size:small;font-family:PingFang SC,微软雅黑">' + esc(teacher) + '</div></td></tr>' +
       '</tbody></table></div></div></div>';
   });
   area.innerHTML = html;
