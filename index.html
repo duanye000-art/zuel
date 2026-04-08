@@ -296,15 +296,15 @@ function getCourses() {
   var blocks = document.getElementById('kc-list').querySelectorAll('.kc-block');
   var list = [];
   blocks.forEach(function(b) {
-    list.push({
-      time:    b.querySelector('.kc-time').value,
-      jie:     b.querySelector('.kc-jie').value,
-      name:    b.querySelector('.kc-name').value,
-      teacher: b.querySelector('.kc-teacher').value
-    });
+    list.push([
+      b.querySelector('.kc-time').value,
+      b.querySelector('.kc-jie').value,
+      b.querySelector('.kc-name').value,
+      b.querySelector('.kc-teacher').value
+    ]);
   });
   // 过滤掉完全空的课程行
-  return list.filter(function(c){ return c.time||c.jie||c.name||c.teacher; });
+  return list.filter(function(c){ return c[0]||c[1]||c[2]||c[3]; });
 }
 
 function generate() {
@@ -336,7 +336,7 @@ function generate() {
     document.getElementById('f_file_size').value
   ];
 
-  var json = JSON.stringify(data);
+  var json = JSON.stringify(data, null, 0);
   // 使用 LZ-String 压缩后 base64url 编码，大幅缩短 URL
   var compressed = LZString.compressToEncodedURIComponent(json);
   window.open('card.html?z=' + compressed, '_blank');
