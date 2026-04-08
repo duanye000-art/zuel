@@ -308,98 +308,37 @@ function getCourses() {
 }
 
 function generate() {
-  var data = {};
-  
-  // 基本信息 - 只存储非空值
-  var xueyuan = document.getElementById('f_xueyuan').value;
-  if (xueyuan) data.a = xueyuan;
-  
-  var xingming = document.getElementById('f_xingming').value;
-  if (xingming) data.b = xingming;
-  
-  var xuehao = document.getElementById('f_xuehao').value;
-  if (xuehao) data.c = xuehao;
-  
-  var zhuanye = document.getElementById('f_zhuanye').value;
-  if (zhuanye) data.d = zhuanye;
-  
-  var banji = document.getElementById('f_banji').value;
-  if (banji) data.e = banji;
-  
-  var nianji = document.getElementById('f_nianji').value;
-  if (nianji) data.f = nianji;
-  
-  var dianhua = document.getElementById('f_dianhua').value;
-  if (dianhua) data.g = dianhua;
-  
-  var qq = document.getElementById('f_qq').value;
-  if (qq) data.h = qq;
-  
-  var bzphone = document.getElementById('f_bzphone').value;
-  if (bzphone) data.i = bzphone;
-  
-  // 请假类型 - 只存储非默认值（默认是病假）
-  var qjlx = document.querySelector('input[name="qjlx"]:checked').value;
-  if (qjlx !== '病假') data.j = qjlx;
-  
-  // 请假时限
-  var date_start = document.getElementById('f_date_start').value;
-  if (date_start !== '2026-04-01') data.k = date_start;
-  
-  var date_end = document.getElementById('f_date_end').value;
-  if (date_end !== '2026-04-01') data.l = date_end;
-  
-  var days = document.getElementById('f_days').value;
-  if (days !== '1') data.m = days;
-  
-  // 请假原因 - 只存储非默认值
-  var reason = document.getElementById('f_reason').value;
-  if (reason !== '身体不适') data.n = reason;
-  
-  // 课程信息 - 只存储非空课程
-  var courses = getCourses();
-  if (courses.length > 0) {
-    // 优化课程数据结构，使用数组存储，每个课程是一个数组而不是对象
-    var optimizedCourses = courses.map(function(c) {
-      return [c.time, c.jie, c.name, c.teacher];
-    });
-    data.kc = optimizedCourses;
-  }
-  
-  // 第二联系人信息 - 只存储非空值
-  var lxr_name = document.getElementById('f_lxr_name').value;
-  if (lxr_name) data.p = lxr_name;
-  
-  var lxr_phone = document.getElementById('f_lxr_phone').value;
-  if (lxr_phone) data.q = lxr_phone;
-  
-  var lxr_addr = document.getElementById('f_lxr_addr').value;
-  if (lxr_addr) data.r = lxr_addr;
-  
-  var lxr_rel = document.getElementById('f_lxr_rel').value;
-  if (lxr_rel) data.s = lxr_rel;
-  
-  // 审核信息 - 只存储非默认值
-  var fdyyjian = document.getElementById('f_fdyyjian').value;
-  if (fdyyjian !== '审核通过') data.t = fdyyjian;
-  
-  var reviewer = document.getElementById('f_reviewer').value;
-  if (reviewer) data.u = reviewer;
-  
-  var review_date = document.getElementById('f_review_date').value;
-  if (review_date) data.v = review_date;
-  
-  // 文件信息 - 只存储非默认值
-  var file_name = document.getElementById('f_file_name').value;
-  if (file_name !== '家长知情书.jpeg') data.w = file_name;
-  
-  var file_size = document.getElementById('f_file_size').value;
-  if (file_size !== '53.5K') data.x = file_size;
+  // 使用数组存储数据，按固定顺序：[学院,姓名,学号,专业,班级,年级,电话,QQ,班长电话,请假类型,开始日期,结束日期,天数,原因,课程数组,联系人姓名,联系人电话,联系人地址,联系人关系,辅导员意见,审核人,审核日期,文件名,文件大小]
+  var data = [
+    document.getElementById('f_xueyuan').value,
+    document.getElementById('f_xingming').value,
+    document.getElementById('f_xuehao').value,
+    document.getElementById('f_zhuanye').value,
+    document.getElementById('f_banji').value,
+    document.getElementById('f_nianji').value,
+    document.getElementById('f_dianhua').value,
+    document.getElementById('f_qq').value,
+    document.getElementById('f_bzphone').value,
+    document.querySelector('input[name="qjlx"]:checked').value,
+    document.getElementById('f_date_start').value,
+    document.getElementById('f_date_end').value,
+    document.getElementById('f_days').value,
+    document.getElementById('f_reason').value,
+    getCourses(),
+    document.getElementById('f_lxr_name').value,
+    document.getElementById('f_lxr_phone').value,
+    document.getElementById('f_lxr_addr').value,
+    document.getElementById('f_lxr_rel').value,
+    document.getElementById('f_fdyyjian').value,
+    document.getElementById('f_reviewer').value,
+    document.getElementById('f_review_date').value,
+    document.getElementById('f_file_name').value,
+    document.getElementById('f_file_size').value
+  ];
 
   var json = JSON.stringify(data);
   // 使用 LZ-String 压缩后 base64url 编码，大幅缩短 URL
   var compressed = LZString.compressToEncodedURIComponent(json);
-  // 使用更短的参数名 'z' 来进一步减少 URL 长度
   window.open('card.html?z=' + compressed, '_blank');
 }
 </script>
